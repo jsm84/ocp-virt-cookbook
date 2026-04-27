@@ -13,6 +13,7 @@ Learn how to configure and customize virtual machines in OpenShift Virtualizatio
 * Cloud-init initialization and troubleshooting
 * Remote access and DNS resolution for VMs
 * Golden images, cloning, and snapshots
+* Deploying and creating custom VM templates
 * Boot order, boot sources, and node placement
 
 == Prerequisites
