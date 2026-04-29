@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Virtual Machine Configuration :: OpenShift Virtualization cookbook</title>
-    <link rel="prev" href="../networking/index.html">
-    <link rel="next" href="../manifests/index.html">
+    <link rel="prev" href="../networking/ovs-bridge-troubleshooting.html">
+    <link rel="next" href="static-ip-configuration.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -40,23 +40,33 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+    <a class="nav-link" href="../getting-started/prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../storage/index.html">Storage Configuration</a>
+    <a class="nav-link" href="../getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="index.html">Virtual Machine Configuration</a>
+    <a class="nav-link" href="../getting-started/default-storage-class.html">Storage Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../manifests/index.html">Manifests Reference</a>
+    <a class="nav-link" href="../getting-started/create-vm-web-console.html">Create VM from Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/virtctl-basics.html">Virtctl Basics</a>
   </li>
 </ul>
   </li>
@@ -65,7 +75,137 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage/index.html">Storage Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/lvm-operator.html">LVM Operator Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/udn-primary-networks.html">UDN Primary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/localnet-secondary.html">Localnet Secondary Networks with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/localnet-vlan.html">Localnet Secondary Networks with VLAN using NAD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/cudn-localnet-vlan.html">Localnet VLAN with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/layer2-secondary.html">Layer 2 Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/linux-bridges.html">Linux Bridges</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Virtual Machine Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="internal-dns-for-vms.html">Internal DNS for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="remote-access-linux-vms.html">Remote Access to Linux VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="remote-access-linux-troubleshooting.html">Remote Access to Linux VMs Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="infrastructure-node-placement.html">Infrastructure Node Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../manifests/index.html">Manifests</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../api/index.html">API Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -105,7 +245,6 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">OpenShift Virtualization cookbook</a></li>
-    <li><a href="../index.html">Home</a></li>
     <li><a href="index.html">Virtual Machine Configuration</a></li>
   </ul>
 </nav>
@@ -120,7 +259,7 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section covers virtual machine configuration in OpenShift Virtualization, focusing on cloud-init and network initialization patterns. Cloud-init is the standard tool for VM initialization and configuration.</p>
+<p>This section covers virtual machine configuration in OpenShift Virtualization, including network initialization, image management, access methods, and placement control.</p>
 </div>
 </div>
 </div>
@@ -133,16 +272,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud-init basics and network configuration</p>
+<p>Static IP configuration using multiple methods (cloud-init, DHCP reservations, guest agent, Sysprep)</p>
 </li>
 <li>
-<p>Static and dynamic IP address assignment</p>
+<p>Cloud-init initialization and troubleshooting</p>
 </li>
 <li>
-<p>Multiple network interface configuration</p>
+<p>Remote access and DNS resolution for VMs</p>
 </li>
 <li>
-<p>Best practices for VM initialization</p>
+<p>Golden images, cloning, and snapshots</p>
+</li>
+<li>
+<p>Boot order, boot sources, and node placement</p>
 </li>
 </ul>
 </div>
@@ -157,7 +299,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.17+ with OpenShift Virtualization operator installed</p>
+<p>OpenShift 4.18+ with OpenShift Virtualization operator installed</p>
 </li>
 <li>
 <p>Basic understanding of virtual machines and networking</p>
@@ -177,97 +319,67 @@
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="cloud-init-ip-configuration.html" class="xref page">Cloud-init IP Configuration</a></dt>
+<dt class="hdlist1"><a href="static-ip-configuration.html" class="xref page">Configuring Static IPs for VMs</a></dt>
 <dd>
-<p>Configure static and dynamic IP addresses using cloud-init for virtual machines with single and multiple network interfaces.</p>
+<p>Configure static IP addresses for virtual machines using cloud-init, DHCP reservations, QEMU guest agent, or Sysprep for Windows VMs.</p>
 </dd>
-<dt class="hdlist1"><a href="cloud-init-troubleshooting.html" class="xref page">Cloud-init Troubleshooting</a></dt>
+<dt class="hdlist1"><a href="cloud-init-troubleshooting.html" class="xref page">Cloud-init IP Configuration Troubleshooting Guide</a></dt>
 <dd>
-<p>Comprehensive troubleshooting guide for cloud-init IP configuration issues, including diagnostic commands and common problem solutions.</p>
+<p>Troubleshooting guide for cloud-init IP configuration issues, including diagnostic commands and common problem solutions.</p>
+</dd>
+<dt class="hdlist1"><a href="internal-dns-for-vms.html" class="xref page">Internal DNS Resolution for Virtual Machines</a></dt>
+<dd>
+<p>Configure internal DNS resolution for VM-to-VM and Pod-to-VM communication using Kubernetes Services within the cluster.</p>
 </dd>
 <dt class="hdlist1"><a href="remote-access-linux-vms.html" class="xref page">Remote Access to Linux VMs</a></dt>
 <dd>
 <p>Multiple methods to access Linux virtual machines including console, VNC, SSH via virtctl, NodePort services, port-forwarding, and direct network access.</p>
 </dd>
-<dt class="hdlist1"><a href="remote-access-troubleshooting.html" class="xref page">Remote Access Troubleshooting</a></dt>
+<dt class="hdlist1"><a href="remote-access-linux-troubleshooting.html" class="xref page">Troubleshooting Remote Access to Linux VMs</a></dt>
 <dd>
-<p>Comprehensive troubleshooting guide for all VM remote access methods, including diagnostic commands and solutions for common issues.</p>
+<p>Troubleshooting guide for all VM remote access methods, including diagnostic commands and solutions for common issues.</p>
 </dd>
-<dt class="hdlist1"><a href="remote-access-windows-rdp.html" class="xref page">Remote Access to Windows VMs via RDP</a></dt>
+<dt class="hdlist1"><a href="remote-access-windows-vms.html" class="xref page">Accessing Your Windows 11 VM on Red Hat OpenShift via Remote Desktop</a></dt>
 <dd>
 <p>Configure external Remote Desktop Protocol (RDP) access to Windows virtual machines using LoadBalancer or NodePort services.</p>
 </dd>
-<dt class="hdlist1"><a href="custom-golden-images.html" class="xref page">Custom Golden Images</a></dt>
+<dt class="hdlist1"><a href="import-qcow2-boot-volume.html" class="xref page">Creating a Boot Volume from a Local qcow2 Image</a></dt>
+<dd>
+<p>Import existing qcow2 disk images from local KVM platforms to create boot volumes in OpenShift Virtualization for easy VM migration.</p>
+</dd>
+<dt class="hdlist1"><a href="custom-golden-images.html" class="xref page">Creating Custom OS Images and Golden Images</a></dt>
 <dd>
 <p>Create reusable golden images with pre-configured software and settings for consistent VM deployments across environments.</p>
 </dd>
-<dt class="hdlist1"><a href="golden-images-troubleshooting.html" class="xref page">Golden Images Troubleshooting</a></dt>
+<dt class="hdlist1"><a href="golden-images-troubleshooting.html" class="xref page">Golden Images Troubleshooting Guide</a></dt>
 <dd>
-<p>Comprehensive troubleshooting guide for creating and using custom golden images, including verification commands and common issue resolutions.</p>
+<p>Troubleshooting guide for creating and using custom golden images, including verification commands and common issue resolutions.</p>
+</dd>
+<dt class="hdlist1"><a href="cloning-vms.html" class="xref page">Cloning Virtual Machines for Rapid Deployment</a></dt>
+<dd>
+<p>Clone existing VMs for rapid deployment of identical or customized instances, including cloning across namespaces and post-clone customization with cloud-init.</p>
+</dd>
+<dt class="hdlist1"><a href="vm-snapshots.html" class="xref page">Creating and Managing VM Snapshots</a></dt>
+<dd>
+<p>Create, manage, and restore VM snapshots for quick rollback, safe testing of changes, and pre-maintenance backup points.</p>
+</dd>
+<dt class="hdlist1"><a href="boot-order-boot-sources.html" class="xref page">Configuring VM Boot Order and Boot Sources</a></dt>
+<dd>
+<p>Configure VM boot order, boot sources (PVC, ContainerDisk, HTTP), and boot options including UEFI vs BIOS modes and Secure Boot for different deployment scenarios.</p>
+</dd>
+<dt class="hdlist1"><a href="infrastructure-node-placement.html" class="xref page">OpenShift Virtualization Infrastructure Node Placement</a></dt>
+<dd>
+<p>Control placement of OpenShift Virtualization infrastructure components (virt-controller, virt-api, virt-handler, CDI) using the HyperConverged custom resource for dedicated infrastructure nodes and high availability.</p>
+</dd>
+<dt class="hdlist1"><a href="node-placement-affinity.html" class="xref page">VM Node Placement with Selectors and Affinity Rules</a></dt>
+<dd>
+<p>Control VM placement across cluster nodes using node selectors, node affinity, and pod affinity/anti-affinity rules for performance, availability, and workload isolation.</p>
+</dd>
+<dt class="hdlist1"><a href="hotplug-volumes-interfaces.html" class="xref page">Hotplugging Volumes and Network Interfaces to Running VMs</a></dt>
+<dd>
+<p>Dynamically add and remove storage volumes and network interfaces on running VMs using virtctl, with zero downtime.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_best_practices"><a class="anchor" href="#_best_practices"></a>Best Practices</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_configuration_management"><a class="anchor" href="#_configuration_management"></a>Configuration Management</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Use networkData for network-specific configuration</p>
-</li>
-<li>
-<p>Keep userData for general system initialization</p>
-</li>
-<li>
-<p>Test configurations in development before production</p>
-</li>
-<li>
-<p>Validate YAML syntax before deployment</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_network_design"><a class="anchor" href="#_network_design"></a>Network Design</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Use DHCP for ephemeral/development workloads</p>
-</li>
-<li>
-<p>Use static IPs for production services</p>
-</li>
-<li>
-<p>Only set default route on primary interface</p>
-</li>
-<li>
-<p>Document IP assignments and network topology</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_security"><a class="anchor" href="#_security"></a>Security</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Avoid hardcoding passwords in production</p>
-</li>
-<li>
-<p>Use SSH keys for authentication</p>
-</li>
-<li>
-<p>Implement network segmentation</p>
-</li>
-<li>
-<p>Apply least privilege principles</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -295,7 +407,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/about_virt/about-virt.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/about#about-virt" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
 <p><a href="https://cloudinit.readthedocs.io/" target="_blank" rel="noopener">Cloud-init Official Documentation</a></p>
@@ -308,8 +420,8 @@
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="../networking/index.html">Networking Configuration</a></span>
-  <span class="next"><a href="../manifests/index.html">Manifests Reference</a></span>
+  <span class="prev"><a href="../networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a></span>
+  <span class="next"><a href="static-ip-configuration.html">Static IP Configuration</a></span>
 </nav>
 </article>
   </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>OpenShift Virtualization Cookbook :: OpenShift Virtualization cookbook</title>
+    <title>OpenShift Virtualization cookbook :: OpenShift Virtualization cookbook</title>
     <link rel="next" href="getting-started/index.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -39,23 +39,33 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="getting-started/index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="getting-started/index.html">Getting Started</a>
+    <a class="nav-link" href="getting-started/prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="storage/index.html">Storage Configuration</a>
+    <a class="nav-link" href="getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="networking/index.html">Networking Configuration</a>
+    <a class="nav-link" href="getting-started/default-storage-class.html">Storage Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="vm-configuration/index.html">Virtual Machine Configuration</a>
+    <a class="nav-link" href="getting-started/create-vm-web-console.html">Create VM from Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="manifests/index.html">Manifests Reference</a>
+    <a class="nav-link" href="getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="getting-started/virtctl-basics.html">Virtctl Basics</a>
   </li>
 </ul>
   </li>
@@ -64,7 +74,137 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="LABENV/index.html">Lab Environment</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="storage/index.html">Storage Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage/lvm-operator.html">LVM Operator Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage/hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage/creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage/multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="networking/index.html">Networking Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/udn-primary-networks.html">UDN Primary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/localnet-secondary.html">Localnet Secondary Networks with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/localnet-vlan.html">Localnet Secondary Networks with VLAN using NAD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/cudn-localnet-vlan.html">Localnet VLAN with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/layer2-secondary.html">Layer 2 Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/linux-bridges.html">Linux Bridges</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="vm-configuration/index.html">Virtual Machine Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/internal-dns-for-vms.html">Internal DNS for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/remote-access-linux-vms.html">Remote Access to Linux VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/remote-access-linux-troubleshooting.html">Remote Access to Linux VMs Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-configuration/hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="manifests/index.html">Manifests</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="api/index.html">API Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -104,7 +244,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">OpenShift Virtualization cookbook</a></li>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">Introduction</a></li>
   </ul>
 </nav>
 </div>
@@ -113,87 +253,18 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">OpenShift Virtualization Cookbook</h1>
+<h1 class="page">OpenShift Virtualization cookbook</h1>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A bite-size approach reference for deploying virtualization workloads for those who are just starting with OpenShift.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This cookbook DOES NOT replace the official OpenShift Virtualization training, which is highly recommended, nor the official documentation. Instead, it is supposed to serve as a complement and a facilitator to partner and customer engineers just getting started.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_contributors"><a class="anchor" href="#_contributors"></a>Contributors</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This cookbook builds upon the excellent work from the original <a href="https://github.com/acmenezes/ocp-virt-onboarding-kit" target="_blank" rel="noopener">OpenShift Virtualization Onboarding Kit</a>. We gratefully acknowledge the contributions of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Alexandre Menezes</p>
-</li>
-<li>
-<p>Andrea Perotti</p>
-</li>
-<li>
-<p>Daphne Hoover</p>
-</li>
-<li>
-<p>Josh Manning</p>
-</li>
-<li>
-<p>Melvin Hillsman</p>
-</li>
-<li>
-<p>Roshan Warrier</p>
-</li>
-<li>
-<p>Yash Devan Oza</p>
-</li>
-</ul>
+<p>A practical field guide for starting and deploying workloads on OpenShift Virtualization.</p>
 </div>
 <div class="paragraph">
-<p>Special thanks to all contributors who have helped shape this resource through content creation, testing, and feedback.</p>
+<p>This cookbook provides bite-sized recipes, example manifests, and troubleshooting notes for those who are just starting with OpenShift. It is designed as a hands-on <em>complement</em> to the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html-single/virtualization/index" target="_blank" rel="noopener">official documentation</a> and <a href="https://www.redhat.com/en/services/training/do316-managing-virtual-machines-red-hat-openshift-virtualization" target="_blank" rel="noopener">training course</a> - facilitating real-world implementation rather than replacing theoretical learning.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_what_youll_learn"><a class="anchor" href="#_what_youll_learn"></a>What You&#8217;ll Learn</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>This cookbook provides comprehensive, practical guidance on:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Setting up and managing virtual machines on OpenShift</p>
-</li>
-<li>
-<p>Configuring networking for various topologies and use cases</p>
-</li>
-<li>
-<p>Managing storage for virtualization workloads</p>
-</li>
-<li>
-<p>Using cloud-init for VM configuration and automation</p>
-</li>
-<li>
-<p>Working with OpenShift Virtualization CLI tools</p>
-</li>
-</ul>
+<p>(<em>last update: 2026-04-29 01:24</em>)</p>
 </div>
 </div>
 </div>
@@ -201,178 +272,53 @@ This cookbook DOES NOT replace the official OpenShift Virtualization training, w
 <h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use this cookbook effectively, you should have:</p>
+<p>To use this cookbook effectively, you need:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.17+ cluster with OpenShift Virtualization operator installed</p>
+<p><strong>Cluster</strong>: OpenShift 4.18+ with the OpenShift Virtualization operator installed.</p>
 </li>
 <li>
-<p>CLI tools: <code>oc</code>, <code>kubectl</code>, <code>virtctl</code></p>
+<p><strong>Tools</strong>: <code>oc</code>, <code>kubectl</code>, and <code>virtctl</code>. (Optional: <code>kustomize</code>, <code>helm</code>, <code>ansible</code>).</p>
 </li>
 <li>
-<p>Basic understanding of Kubernetes/OpenShift concepts</p>
-</li>
-<li>
-<p>Familiarity with YAML and command-line tools</p>
+<p><strong>Knowledge</strong>: Proficiency with YAML, and CLI workflows (not mandatory but strongly suggested). Basic understanding of Kubernetes/OpenShift concepts.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Optional tools depending on your approach:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>kustomize</code></p>
-</li>
-<li>
-<p><code>helm</code></p>
-</li>
-<li>
-<p><code>ansible</code></p>
-</li>
-</ul>
+<p>Go through all the <strong><a href="getting-started/index.html" class="xref page">Getting Started</a></strong> modules, especially if you are new to the technology, to prepare or verify your environment.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_use_this_cookbook"><a class="anchor" href="#_how_to_use_this_cookbook"></a>How to Use This Cookbook</h2>
+<h2 id="_cookbook_modules"><a class="anchor" href="#_cookbook_modules"></a>Cookbook Modules</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This cookbook is organized into focused modules:</p>
+<p>Select one of the module from the left menu to begin:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><a href="getting-started/index.html" class="xref page">Getting Started</a></strong> - Essential tools and basic configuration</p>
+<p><strong><a href="getting-started/index.html" class="xref page">Getting Started</a></strong> - Essential tools setup and environment verification.</p>
 </li>
 <li>
-<p><strong><a href="storage/index.html" class="xref page">Storage Configuration</a></strong> - Setting up storage for virtual machines</p>
+<p><strong><a href="storage/index.html" class="xref page">Storage Configuration</a></strong> - Storage setup for virtual machines.</p>
 </li>
 <li>
-<p><strong><a href="networking/index.html" class="xref page">Networking Configuration</a></strong> - Comprehensive networking guides</p>
+<p><strong><a href="networking/index.html" class="xref page">Networking Configuration</a></strong> - Networking guides.</p>
 </li>
 <li>
-<p><strong><a href="vm-configuration/index.html" class="xref page">Virtual Machine Configuration</a></strong> - Cloud-init and VM customization</p>
+<p><strong><a href="vm-configuration/index.html" class="xref page">Virtual Machine Configuration</a></strong> - Cloud-init and VM customization.</p>
 </li>
 <li>
-<p><strong><a href="manifests/index.html" class="xref page">Manifests Reference</a></strong> - Ready-to-use YAML examples</p>
+<p><strong><a href="manifests/index.html" class="xref page">YAML Manifests Library</a></strong> - A library of ready-to-deploy manifest examples.</p>
+</li>
+<li>
+<p><strong><a href="api/index.html" class="xref page">API Integration</a></strong> - API components architecture and functions such as cloning, export and machine topology.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Each module contains step-by-step tutorials, practical examples, and troubleshooting guidance.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_quick_navigation"><a class="anchor" href="#_quick_navigation"></a>Quick Navigation</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="getting-started/prerequisites.html" class="xref page">Prerequisites and Setup</a></p>
-</li>
-<li>
-<p><a href="getting-started/virtctl-basics.html" class="xref page">Virtctl Basics</a></p>
-</li>
-<li>
-<p><a href="getting-started/storage-setup.html" class="xref page">Configuring Default Storage Class</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_storage"><a class="anchor" href="#_storage"></a>Storage</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="storage/lvm-operator.html" class="xref page">Installing LVM Storage Operator</a></p>
-</li>
-<li>
-<p><a href="storage/lvm-troubleshooting.html" class="xref page">Troubleshooting LVM Storage Operator</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_networking"><a class="anchor" href="#_networking"></a>Networking</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="networking/udn-primary-networks.html" class="xref page">Configuring Layer 2 Primary Networks with UDNs</a></p>
-</li>
-<li>
-<p><a href="networking/localnet-secondary.html" class="xref page">Configuring Localnet Secondary Networks with ClusterUserDefinedNetwork</a></p>
-</li>
-<li>
-<p><a href="networking/localnet-vlan.html" class="xref page">Configuring Localnet Secondary Networks with VLAN using NetworkAttachmentDefinition</a></p>
-</li>
-<li>
-<p><a href="networking/cudn-localnet-vlan.html" class="xref page">Configuring Localnet Secondary Networks with VLAN using ClusterUserDefinedNetwork</a></p>
-</li>
-<li>
-<p><a href="networking/linux-bridges.html" class="xref page">Configuring Linux Bridges for VMs</a></p>
-</li>
-<li>
-<p><a href="networking/ovs-bridge-verification.html" class="xref page">Troubleshooting OVS Bridge Creation for Localnet Networks</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_virtual_machine_configuration"><a class="anchor" href="#_virtual_machine_configuration"></a>Virtual Machine Configuration</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="vm-configuration/cloud-init-ip-configuration.html" class="xref page">Cloud-init IP Configuration</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/cloud-init-troubleshooting.html" class="xref page">Cloud-init Troubleshooting</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/remote-access-linux-vms.html" class="xref page">Remote Access to Linux VMs</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/remote-access-troubleshooting.html" class="xref page">Remote Access Troubleshooting</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/remote-access-windows-rdp.html" class="xref page">Remote Access to Windows VMs via RDP</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/custom-golden-images.html" class="xref page">Custom Golden Images</a></p>
-</li>
-<li>
-<p><a href="vm-configuration/golden-images-troubleshooting.html" class="xref page">Golden Images Troubleshooting</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_manifests_reference"><a class="anchor" href="#_manifests_reference"></a>Manifests Reference</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="manifests/operators.html" class="xref page">Operator Manifests</a></p>
-</li>
-<li>
-<p><a href="manifests/networking.html" class="xref page">Networking Manifests</a></p>
-</li>
-<li>
-<p><a href="manifests/storage.html" class="xref page">Storage Manifests</a></p>
-</li>
-<li>
-<p><a href="manifests/vms.html" class="xref page">Virtual Machine Manifests</a></p>
-</li>
-<li>
-<p><a href="manifests/security.html" class="xref page">Security Manifests</a></p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -382,16 +328,16 @@ This cookbook DOES NOT replace the official OpenShift Virtualization training, w
 <div class="ulist">
 <ul>
 <li>
-<p><a href="appendix/glossary.html" class="xref page">Glossary</a> - Key terms and definitions</p>
-</li>
-<li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/about_virt/about-virt.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/about" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/" target="_blank" rel="noopener">KubeVirt Project</a></p>
 </li>
 <li>
 <p><a href="https://cloudinit.readthedocs.io/" target="_blank" rel="noopener">Cloud-init Documentation</a></p>
+</li>
+<li>
+<p><a href="appendix/glossary.html" class="xref page">Glossary</a> - Key terms and definitions</p>
 </li>
 </ul>
 </div>
@@ -401,7 +347,18 @@ This cookbook DOES NOT replace the official OpenShift Virtualization training, w
 <h2 id="_contributing"><a class="anchor" href="#_contributing"></a>Contributing</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This cookbook is actively maintained. For questions, issues, or contributions, please refer to the <a href="https://github.com/RedHatQuickCourses/ocp-virt-cookbook" target="_blank" rel="noopener">project repository</a>.</p>
+<p>For questions, issues, or contributions, please open an issue to the <a href="https://github.com/RedHatQuickCourses/ocp-virt-cookbook/issues/new/choose" target="_blank" rel="noopener">project repository</a> or get in touch with the team at <a href="mailto:ocp-virt-cookbook@redhat.com">ocp-virt-cookbook@redhat.com</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_credits"><a class="anchor" href="#_credits"></a>Credits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This cookbook builds upon the excellent work from the original <a href="https://github.com/acmenezes/ocp-virt-onboarding-kit" target="_blank" rel="noopener">OpenShift Virtualization Onboarding Kit</a>. We gratefully acknowledge the contributions of Alexandre Menezes, Andrea Perotti, Daphne Hoover, Josh Manning, Melvin Hillsman, Roshan Warrier, Yash Devan Oza and the community.</p>
+</div>
+<div class="paragraph">
+<p>Special thanks to all contributors who have helped shape this resource through content creation, testing, and feedback.</p>
 </div>
 </div>
 </div>

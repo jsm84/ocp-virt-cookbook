@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Installing LVM Storage Operator :: OpenShift Virtualization cookbook</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="lvm-troubleshooting.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -38,23 +40,33 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
+    <a class="nav-link" href="../getting-started/prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="index.html">Storage Configuration</a>
+    <a class="nav-link" href="../getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
+    <a class="nav-link" href="../getting-started/default-storage-class.html">Storage Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/index.html">Virtual Machine Configuration</a>
+    <a class="nav-link" href="../getting-started/create-vm-web-console.html">Create VM from Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../manifests/index.html">Manifests Reference</a>
+    <a class="nav-link" href="../getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/virtctl-basics.html">Virtctl Basics</a>
   </li>
 </ul>
   </li>
@@ -63,7 +75,137 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Storage Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lvm-operator.html">LVM Operator Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lvm-troubleshooting.html">LVM Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/udn-primary-networks.html">UDN Primary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/localnet-secondary.html">Localnet Secondary Networks with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/localnet-vlan.html">Localnet Secondary Networks with VLAN using NAD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/cudn-localnet-vlan.html">Localnet VLAN with CUDN</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/layer2-secondary.html">Layer 2 Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/linux-bridges.html">Linux Bridges</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../vm-configuration/index.html">Virtual Machine Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/internal-dns-for-vms.html">Internal DNS for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/remote-access-linux-vms.html">Remote Access to Linux VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/remote-access-linux-troubleshooting.html">Remote Access to Linux VMs Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../manifests/index.html">Manifests</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../api/index.html">API Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -103,7 +245,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">OpenShift Virtualization cookbook</a></li>
-    <li><a href="lvm-operator.html">Installing LVM Storage Operator</a></li>
+    <li><a href="index.html">Storage Configuration</a></li>
+    <li><a href="lvm-operator.html">LVM Operator Installation</a></li>
   </ul>
 </nav>
 </div>
@@ -127,7 +270,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>OpenShift 4.14+</strong>: LVM Storage operator is supported</p>
+<p><strong>OpenShift 4.18+</strong></p>
 </li>
 <li>
 <p><strong>Local disk available</strong>: At least one spare disk on cluster nodes</p>
@@ -145,7 +288,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>OCP 4.19</pre>
+<pre>OpenShift 4.19, 4.20</pre>
 </div>
 </div>
 </div>
@@ -259,46 +402,55 @@ sdc   558.4G disk                        PERC H730 Adp
 <div class="paragraph">
 <p>Create namespace for LVM operator:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/lvm-namespace.yaml" class="xref attachment">Download lvm-namespace.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: openshift-storage
+  name: openshift-lvm-storage
 EOF</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Create OperatorGroup:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/lvm-operatorgroup.yaml" class="xref attachment">Download lvm-operatorgroup.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: openshift-storage-operatorgroup
-  namespace: openshift-storage
+  name: openshift-lvm-storage-operatorgroup
+  namespace: openshift-lvm-storage
 spec:
   targetNamespaces:
-  - openshift-storage
+  - openshift-lvm-storage
 EOF</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Create Subscription to install the operator:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/lvm-subscription.yaml" class="xref attachment">Download lvm-subscription.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: lvms-operator
-  namespace: openshift-storage
+  namespace: openshift-lvm-storage
 spec:
-  channel: stable-4.19
+  channel: stable-4.20
   name: lvms-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
@@ -312,10 +464,10 @@ EOF</code></pre>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Wait for the operator to be installed (may take 2-3 minutes)
-oc get csv -n openshift-storage
+oc get csv -n openshift-lvm-storage
 
 # Check operator pod is running
-oc get pods -n openshift-storage</code></pre>
+oc get pods -n openshift-lvm-storage</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -374,14 +526,17 @@ Using <code>forceWipeDevicesAndDestroyAllData: true</code> will permanently dest
 </tr>
 </table>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/lvmcluster-with-wipe.yaml" class="xref attachment">Download lvmcluster-with-wipe.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: lvm.topolvm.io/v1alpha1
 kind: LVMCluster
 metadata:
   name: lvmcluster
-  namespace: openshift-storage
+  namespace: openshift-lvm-storage
 spec:
   storage:
     deviceClasses:
@@ -411,14 +566,17 @@ EOF</code></pre>
 <div class="paragraph">
 <p>If your disk is clean with no existing data or partitions:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/lvmcluster-clean-disk.yaml" class="xref attachment">Download lvmcluster-clean-disk.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: lvm.topolvm.io/v1alpha1
 kind: LVMCluster
 metadata:
   name: lvmcluster
-  namespace: openshift-storage
+  namespace: openshift-lvm-storage
 spec:
   storage:
     deviceClasses:
@@ -524,7 +682,7 @@ EOF</code></pre>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Check LVMCluster status
-oc get lvmcluster -n openshift-storage
+oc get lvmcluster -n openshift-lvm-storage
 
 # Verify volume group was created
 oc debug node/&lt;node-name&gt; -- chroot /host vgs
@@ -747,9 +905,12 @@ Always set a default StorageClass for OpenShift Virtualization clusters to simpl
 <div class="paragraph">
 <p>Create a test PVC to verify storage provisioning works:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/test-pvc.yaml" class="xref attachment">Download test-pvc.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -768,9 +929,12 @@ EOF</code></pre>
 <div class="paragraph">
 <p>Create a test pod to use the PVC:</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/lvm-operator/test-pod.yaml" class="xref attachment">Download test-pod.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -830,7 +994,7 @@ oc delete pvc lvms-test-pvc</code></pre>
 <h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you encounter any issues during installation or operation of LVM storage, refer to the comprehensive <a href="lvm-troubleshooting.html" class="xref page">LVM Storage Troubleshooting Guide</a>.</p>
+<p>If you encounter any issues during installation or operation of LVM storage, refer to the <a href="lvm-troubleshooting.html" class="xref page">LVM Storage Troubleshooting Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>The troubleshooting guide covers:</p>
@@ -853,7 +1017,7 @@ oc delete pvc lvms-test-pvc</code></pre>
 <p>Thin pool management</p>
 </li>
 <li>
-<p>Comprehensive diagnostic procedures</p>
+<p>Diagnostic procedures</p>
 </li>
 </ul>
 </div>
@@ -949,23 +1113,51 @@ oc debug node/&lt;node-name&gt; -- chroot /host lsblk -d -o NAME,SERIAL /dev/sda
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_openshift_documentation"><a class="anchor" href="#_openshift_documentation"></a>OpenShift Documentation</h3>
+<div class="paragraph">
+<p>In this tutorial, you learned:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/storage/persistent-storage-using-local-storage#persistent-storage-using-lvms" target="_blank" rel="noopener">Persistent Storage Using LVM Storage</a></p>
+<p>How to identify available spare disks on cluster nodes for LVM storage</p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/storage/understanding-persistent-storage#storage-classes_understanding-persistent-storage" target="_blank" rel="noopener">Understanding Persistent Storage</a></p>
+<p>How to install the LVM Storage operator by creating the namespace, OperatorGroup, and Subscription</p>
+</li>
+<li>
+<p>How to create and configure an LVMCluster resource, including the <code>forceWipeDevicesAndDestroyAllData</code> parameter for disks with existing data</p>
+</li>
+<li>
+<p>How to set the auto-generated <code>lvms-vg1</code> StorageClass as the default for OpenShift Virtualization</p>
+</li>
+<li>
+<p>How to test storage provisioning with a PVC and pod, and verify the LVMCluster health</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/storage/persistent-storage-using-local-storage#persistent-storage-using-lvms" target="_blank" rel="noopener">Persistent Storage Using LVM Storage</a></p>
+</li>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/storage/understanding-persistent-storage#storage-classes_understanding-persistent-storage" target="_blank" rel="noopener">Understanding Persistent Storage</a></p>
+</li>
+</ul>
 </div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Storage Configuration</a></span>
+  <span class="next"><a href="lvm-troubleshooting.html">LVM Troubleshooting</a></span>
+</nav>
 </article>
   </div>
 </main>
