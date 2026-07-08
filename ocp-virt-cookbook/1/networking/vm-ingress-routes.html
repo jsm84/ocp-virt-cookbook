@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Integrating VMs with OpenShift Ingress for HTTP/HTTPS Traffic :: OpenShift Virtualization cookbook</title>
-    <link rel="prev" href="sriov-secondary.html">
+    <link rel="prev" href="dual-stack-vms.html">
     <link rel="next" href="ovs-bridge-troubleshooting.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -61,6 +61,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/create-vm-web-console.html">Create VM from Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/create-vm-cli-yaml.html">Create VM from CLI</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
@@ -132,6 +135,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="sriov-secondary.html">SR-IOV Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="network-policies-vms.html">Network Policies for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="metallb-loadbalancer.html">MetalLB Load Balancer for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dual-stack-vms.html">Dual-Stack IPv4/IPv6 VMs</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="vm-ingress-routes.html">VM Ingress and Routes</a>
@@ -248,6 +260,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../agentic-vm-management/index.html">Agentic VM Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
   </li>
 </ul>
   </li>
@@ -844,7 +869,7 @@ curl -s http://localhost</code></pre>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="sriov-secondary.html">SR-IOV Secondary Networks</a></span>
+  <span class="prev"><a href="dual-stack-vms.html">Dual-Stack IPv4/IPv6 VMs</a></span>
   <span class="next"><a href="ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a></span>
 </nav>
 </article>

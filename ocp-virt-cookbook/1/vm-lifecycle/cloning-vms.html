@@ -63,6 +63,9 @@
     <a class="nav-link" href="../getting-started/create-vm-web-console.html">Create VM from Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/create-vm-cli-yaml.html">Create VM from CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -132,6 +135,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/sriov-secondary.html">SR-IOV Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/network-policies-vms.html">Network Policies for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/metallb-loadbalancer.html">MetalLB Load Balancer for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/dual-stack-vms.html">Dual-Stack IPv4/IPv6 VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/vm-ingress-routes.html">VM Ingress and Routes</a>
@@ -248,6 +260,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../agentic-vm-management/index.html">Agentic VM Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
   </li>
 </ul>
   </li>
@@ -582,7 +607,8 @@ spec:
               #cloud-config
               user: fedora
               password: fedora123
-              chpasswd: { expire: false }
+              chpasswd:
+                expire: false
               ssh_pwauth: true
               runcmd:
                 - dnf install -y nginx
@@ -1121,7 +1147,8 @@ spec:
               fqdn: webserver-custom.local
               manage_etc_hosts: true
               password: fedora123
-              chpasswd: { expire: false }
+              chpasswd:
+                expire: false
               ssh_pwauth: true
               runcmd:
                 - hostnamectl set-hostname webserver-custom
@@ -1219,9 +1246,15 @@ rules:
     verbs: ["get", "list"]
   - apiGroups: ["cdi.kubevirt.io"]
     resources: ["datavolumes"]
-    verbs: ["get", "list"]
----
-apiVersion: rbac.authorization.k8s.io/v1
+    verbs: ["get", "list"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bind the Role to the default service account in the production namespace:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: allow-clone-from-demo
@@ -1346,7 +1379,8 @@ spec:
               fqdn: webserver-prod.production.local
               manage_etc_hosts: true
               password: fedora123
-              chpasswd: { expire: false }
+              chpasswd:
+                expire: false
               ssh_pwauth: true
               runcmd:
                 - hostnamectl set-hostname webserver-prod

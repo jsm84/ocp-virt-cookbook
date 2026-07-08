@@ -63,6 +63,9 @@
     <a class="nav-link" href="../getting-started/create-vm-web-console.html">Create VM from Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/create-vm-cli-yaml.html">Create VM from CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/vm-lifecycle-states.html">VM Lifecycle States</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -132,6 +135,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="sriov-secondary.html">SR-IOV Secondary Networks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="network-policies-vms.html">Network Policies for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="metallb-loadbalancer.html">MetalLB Load Balancer for VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dual-stack-vms.html">Dual-Stack IPv4/IPv6 VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="vm-ingress-routes.html">VM Ingress and Routes</a>
@@ -248,6 +260,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../agentic-vm-management/index.html">Agentic VM Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
   </li>
 </ul>
   </li>
@@ -619,7 +644,7 @@ spec:
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>metadata.name</code></strong>: k8s name of the <code>NetworkAttachmentDefinition</code>.</p>
+<p><strong><code>metadata.name</code></strong>: Kubernetes name of the <code>NetworkAttachmentDefinition</code>.</p>
 </li>
 <li>
 <p><strong><code>metadata.namespace</code></strong>: should match the namespace that the pods/VMs are running in (<code>bridge-demo</code> in this example), but could exist in another namespace.</p>
@@ -702,7 +727,7 @@ spec:
 </table>
 </div>
 <div class="paragraph">
-<p>Once the file is saved as <code>lnbr0-bridge.net-attach-def.yaml</code> (where <code>net-attach-def</code> is the valid k8s short-name), go ahead and apply the <code>network-attachment-definition</code> to the OpenShift cluster:</p>
+<p>Once the file is saved as <code>lnbr0-bridge.net-attach-def.yaml</code> (where <code>net-attach-def</code> is the valid Kubernetes short-name), go ahead and apply the <code>network-attachment-definition</code> to the OpenShift cluster:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
@@ -841,7 +866,8 @@ spec:
             #cloud-config
             user: fedora
             password: fedora
-            chpasswd: { expire: False }</code></pre>
+            chpasswd:
+              expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1009,7 +1035,8 @@ spec:
             #cloud-config
             user: fedora
             password: fedora
-            chpasswd: { expire: False }</code></pre>
+            chpasswd:
+              expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
