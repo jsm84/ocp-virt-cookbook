@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Creating Custom OS Images and Golden Images :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="import-qcow2-boot-volume.html">
-    <link rel="next" href="golden-images-troubleshooting.html">
+    <link rel="next" href="windows-golden-images.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -16,6 +16,11 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
       <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Virtualization cookbook</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -51,10 +56,19 @@
     <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/vm-quick-start.html">Quick Start</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/architecture-overview.html">Architecture Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/installing-qemu-guest-agent.html">Installing QEMU Guest Agent</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/default-storage-class.html">Storage Setup</a>
@@ -91,6 +105,9 @@
     <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/odf-ceph-storage.html">ODF/Ceph Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -98,6 +115,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/expanding-vm-disk-size.html">Expanding VM Disk Size</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/cdi-operations.html">CDI Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/disk-io-tuning.html">Disk I/O Tuning</a>
   </li>
 </ul>
   </li>
@@ -174,7 +200,13 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/ssh-access-windows-vms.html">Remote Access to Windows VMs via SSH</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/windows-vm-virtio-drivers.html">Windows VMs with VirtIO Drivers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/legacy-windows-versions.html">Legacy Windows Versions</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
@@ -187,6 +219,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
 </ul>
   </li>
@@ -228,6 +263,9 @@
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="windows-golden-images.html">Windows Golden Images</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
@@ -273,6 +311,24 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/natural-language-vm-create.html">Natural Language VM Creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-lifecycle.html">AI VM Lifecycle Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/vm-clone.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-snapshot-management.html">VM Snapshot Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-skill-chaining.html">Day-2 Skill Chaining</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-rebalance.html">VM Rebalancing and Live Migration</a>
   </li>
 </ul>
   </li>
@@ -337,20 +393,75 @@
 <h2 id="_what_are_golden_images"><a class="anchor" href="#_what_are_golden_images"></a>What are Golden Images?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Golden images are standardized, pre-configured VM images that contain:
-- Base operating system
-- Pre-installed software packages
-- System configurations
-- Security hardening
-- Optimizations</p>
+<p>Golden images are standardized, pre-configured VM images that contain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Base operating system</p>
+</li>
+<li>
+<p>Pre-installed software packages</p>
+</li>
+<li>
+<p>System configurations</p>
+</li>
+<li>
+<p>Security hardening</p>
+</li>
+<li>
+<p>Optimizations</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Benefits of using golden images:
-- Faster VM deployment (no need to install software after boot)
-- Consistency across all VMs
-- Reduced configuration errors
-- Simplified maintenance and updates
-- Version control for VM configurations</p>
+<p>Benefits of using golden images:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Faster VM deployment (no need to install software after boot)</p>
+</li>
+<li>
+<p>Consistency across all VMs</p>
+</li>
+<li>
+<p>Reduced configuration errors</p>
+</li>
+<li>
+<p>Simplified maintenance and updates</p>
+</li>
+<li>
+<p>Version control for VM configurations</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enterprise_use_cases"><a class="anchor" href="#_enterprise_use_cases"></a>Enterprise Use Cases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Those benefits matter most at organizational scale, where the same base image is deployed repeatedly across teams and environments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Compliance-hardened images</strong>: Maintain a CIS-benchmarked RHEL image with security agents pre-installed and make it the only approved base for production VMs. The image is audited once, rather than every VM being audited individually.</p>
+</li>
+<li>
+<p><strong>Rapid provisioning for dev and test</strong>: Deploy 50 identical VMs in five minutes from a golden image, rather than installing from an ISO each time.</p>
+</li>
+<li>
+<p><strong>Version management</strong>: Track image versions over time, for example a Q1 image built on RHEL 9.3 with January patches and a Q2 image built on RHEL 9.4 with April patches, so you always know which VMs are running which image. See <a href="#version-management">Version Management</a>.</p>
+</li>
+<li>
+<p><strong>Multi-team standardization</strong>: A platform team maintains the golden images while development teams consume them. Every team starts from the same base without each one rebuilding it.</p>
+</li>
+<li>
+<p><strong>Disaster recovery</strong>: Keep pre-built golden images stored in a registry or object storage for rapid redeployment after a cluster rebuild.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -382,13 +493,59 @@
 <h2 id="_golden_image_workflow"><a class="anchor" href="#_golden_image_workflow"></a>Golden Image Workflow</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The process involves these steps:
-. Deploy a base VM from a standard OS image
-. Customize the VM (install software, configure settings)
-. Generalize the VM (remove machine-specific data)
-. Stop the VM and capture its disk
-. Create a DataSource for the golden image
-. Deploy new VMs from the golden image</p>
+<p>The process involves these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deploy a base VM from a standard OS image</p>
+</li>
+<li>
+<p>Customize the VM (install software, configure settings)</p>
+</li>
+<li>
+<p>Generalize the VM (remove machine-specific data)</p>
+</li>
+<li>
+<p>Stop the VM and capture its disk</p>
+</li>
+<li>
+<p>Create a DataSource for the golden image</p>
+</li>
+<li>
+<p>Deploy new VMs from the golden image</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The same pipeline, showing the resources this tutorial creates at each stage. Steps 1 through 5 are performed once to build the image; step 6 is repeated for every VM you deploy from it:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1  Base VM  — cloned from the fedora DataSource (or an imported qcow2)
+│            starts as base-fedora-vm
+│
+2  Customize  — dnf update, install nginx, configure the firewall
+│
+3  Generalize  — cloud-init clean, reset machine-id, clear logs and history
+│
+4  Stop  — virtctl stop, so the disk is no longer being written to
+│
+5  DataSource  — fedora-nginx-golden, pointing at the stopped VM's PVC
+│               the golden image is now reusable
+│
+6  Deploy clones  — each VM clones the golden PVC into its own disk
+   │
+   ├─ webserver-vm-1  — cloud-init sets its own hostname
+   ├─ webserver-vm-2  — cloud-init sets its own hostname
+   └─ ...             — any number of VMs, all from the same image</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Two details are worth noting. The DataSource does not hold a copy of the image; it is a pointer to the PVC the base VM left behind, which is why the base VM&#8217;s disk must be kept as long as the DataSource is in use. And each VM deployed in step 6 clones that PVC into a disk of its own, so the VMs are independent after creation, and each clone takes time proportional to the disk size.</p>
+</div>
+<div class="paragraph">
+<p>Steps 2 and 3 are what make the image reusable. Customization is what you want every VM to inherit; generalization removes the machine-specific identity that would otherwise be duplicated across every clone.</p>
 </div>
 </div>
 </div>
@@ -933,7 +1090,7 @@ webserver-vm-2   5m    Running   10.128.1.153   ocplab01   True</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_version_management"><a class="anchor" href="#_version_management"></a>Version Management</h2>
+<h2 id="version-management"><a class="anchor" href="#version-management"></a>Version Management</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To create new versions of your golden image:</p>
@@ -1084,12 +1241,32 @@ oc delete namespace golden-images</code></pre>
 <h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this tutorial, you learned how to:
-- Deploy and customize a base VM
-- Generalize a VM for reuse as a golden image
-- Create a DataSource for the golden image
-- Deploy multiple VMs from the golden image
-- Manage golden image versions</p>
+<p>In this tutorial, you learned how to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Recognize the enterprise scenarios that justify a golden image workflow</p>
+</li>
+<li>
+<p>Follow the pipeline from a base VM through to multiple deployed clones</p>
+</li>
+<li>
+<p>Deploy and customize a base VM</p>
+</li>
+<li>
+<p>Generalize a VM for reuse as a golden image</p>
+</li>
+<li>
+<p>Create a DataSource for the golden image</p>
+</li>
+<li>
+<p>Deploy multiple VMs from the golden image</p>
+</li>
+<li>
+<p>Manage golden image versions</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Golden images significantly improve VM deployment efficiency and consistency in OpenShift Virtualization environments.</p>
@@ -1116,7 +1293,7 @@ oc delete namespace golden-images</code></pre>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a></span>
-  <span class="next"><a href="golden-images-troubleshooting.html">Golden Images Troubleshooting</a></span>
+  <span class="next"><a href="windows-golden-images.html">Windows Golden Images</a></span>
 </nav>
 </article>
   </div>
@@ -1126,5 +1303,8 @@ oc delete namespace golden-images</code></pre>
   <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
 </footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
   </body>
 </html>

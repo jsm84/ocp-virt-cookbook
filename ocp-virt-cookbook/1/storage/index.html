@@ -16,6 +16,11 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
       <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Virtualization cookbook</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -51,10 +56,19 @@
     <a class="nav-link" href="../getting-started/index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/vm-quick-start.html">Quick Start</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/architecture-overview.html">Architecture Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/installing-qemu-guest-agent.html">Installing QEMU Guest Agent</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/default-storage-class.html">Storage Setup</a>
@@ -91,6 +105,9 @@
     <a class="nav-link" href="lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="odf-ceph-storage.html">ODF/Ceph Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="hostpath-provisioner.html">HostPath Provisioner</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -98,6 +115,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="expanding-vm-disk-size.html">Expanding VM Disk Size</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cdi-operations.html">CDI Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disk-io-tuning.html">Disk I/O Tuning</a>
   </li>
 </ul>
   </li>
@@ -174,7 +200,13 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/ssh-access-windows-vms.html">Remote Access to Windows VMs via SSH</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/windows-vm-virtio-drivers.html">Windows VMs with VirtIO Drivers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/legacy-windows-versions.html">Legacy Windows Versions</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
@@ -187,6 +219,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
 </ul>
   </li>
@@ -228,6 +263,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/windows-golden-images.html">Windows Golden Images</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
@@ -273,6 +311,24 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/natural-language-vm-create.html">Natural Language VM Creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-lifecycle.html">AI VM Lifecycle Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/vm-clone.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-snapshot-management.html">VM Snapshot Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-skill-chaining.html">Day-2 Skill Chaining</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-rebalance.html">VM Rebalancing and Live Migration</a>
   </li>
 </ul>
   </li>
@@ -347,6 +403,9 @@
 <p>How to install and configure the LVM Storage operator for local disk storage</p>
 </li>
 <li>
+<p>How to deploy OpenShift Data Foundation (ODF) with Ceph for distributed storage</p>
+</li>
+<li>
 <p>How to configure HostPath Provisioner for simple local storage</p>
 </li>
 <li>
@@ -377,7 +436,7 @@
 <p><strong>HostPath Provisioner</strong>: Simple local storage provisioning (covered in this module)</p>
 </li>
 <li>
-<p><strong>Ceph/ODF</strong>: Distributed block and file storage</p>
+<p><strong>OpenShift Data Foundation (ODF)</strong>: Distributed block and file storage using Ceph (covered in this module)</p>
 </li>
 <li>
 <p><strong>NFS</strong>: Network-attached storage</p>
@@ -388,7 +447,121 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>This module covers LVM Storage and HostPath Provisioner for local storage scenarios, ideal for Single Node OpenShift (SNO) and bare-metal deployments.</p>
+<p>This module covers local storage options (LVM Storage, HostPath Provisioner) for single-node deployments and distributed storage (ODF/Ceph) for production multi-node clusters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_choosing_the_right_storage_backend"><a class="anchor" href="#_choosing_the_right_storage_backend"></a>Choosing the Right Storage Backend</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the following diagram to determine which storage backend fits your cluster topology and workload requirements.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/storage-decision-diagram.png" alt="Storage Decision Diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The decision depends on three factors: cluster topology (single-node vs multi-node), whether live migration is required (which needs RWX access mode), and what existing storage infrastructure is available. The comparison table below summarizes the capabilities of each backend.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Storage Backend</th>
+<th class="tableblock halign-left valign-top">Access Modes</th>
+<th class="tableblock halign-left valign-top">Volume Mode</th>
+<th class="tableblock halign-left valign-top">Snapshots</th>
+<th class="tableblock halign-left valign-top">Live Migration</th>
+<th class="tableblock halign-left valign-top">Thin Provisioning</th>
+<th class="tableblock halign-left valign-top">Performance</th>
+<th class="tableblock halign-left valign-top">Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LVM Storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RWO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No (RWO only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High (local disk)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single-node or bare-metal production with local disks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HostPath Provisioner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RWO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filesystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No (RWO only)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moderate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dev/test, prototyping, edge, single-node</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ODF/Ceph (RBD)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RWO, RWX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes (RWX multi-attach)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High (distributed)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Production multi-node, recommended for VM workloads with live migration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ODF/Ceph (CephFS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RWO, RWX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filesystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes (RWX)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High (distributed)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Production multi-node with live migration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RWO, RWX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filesystem</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes (RWX)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moderate (network)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared storage with existing NFS infrastructure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External CSI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Varies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud deployments (AWS EBS, Azure Disk, etc.)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Live migration requires the VM disk to be accessible from both the source and destination nodes during migration. ODF supports this through two paths: Ceph RBD in Block mode (RWX multi-attach, recommended for VM workloads due to higher I/O performance) which allows concurrent access from multiple nodes, and CephFS in Filesystem mode (RWX) which provides shared filesystem access. NFS also provides RWX access. For production clusters requiring live migration, ODF with Ceph RBD is the recommended solution.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -429,13 +602,33 @@
 <dd>
 <p>Troubleshooting guide for diagnosing and resolving LVM storage issues.</p>
 </dd>
+<dt class="hdlist1"><a href="odf-ceph-storage.html" class="xref page">OpenShift Data Foundation (ODF) with Ceph Storage</a></dt>
+<dd>
+<p>Install and configure OpenShift Data Foundation with Ceph storage for production multi-node clusters requiring distributed, scalable storage.</p>
+</dd>
 <dt class="hdlist1"><a href="hostpath-provisioner.html" class="xref page">Local Storage with HostPath Provisioner</a></dt>
 <dd>
 <p>Configure local storage using the HostPath Provisioner for development, testing, and single-node cluster scenarios.</p>
 </dd>
+<dt class="hdlist1"><a href="creating-managing-storage-class.html" class="xref page">Creating and Managing Storage Classes</a></dt>
+<dd>
+<p>Create and configure StorageClasses for different storage backends and provisioning policies.</p>
+</dd>
 <dt class="hdlist1"><a href="multi-disk-configuration.html" class="xref page">Multi-Disk VM Configuration with Different Storage Classes</a></dt>
 <dd>
 <p>Configure VMs with multiple disks using different StorageClasses for storage tiering.</p>
+</dd>
+<dt class="hdlist1"><a href="expanding-vm-disk-size.html" class="xref page">Expanding VM Disk Size (PVC Volume Expansion)</a></dt>
+<dd>
+<p>Expand VM disk size via PVC volume expansion for both offline and online scenarios.</p>
+</dd>
+<dt class="hdlist1"><a href="cdi-operations.html" class="xref page">CDI Operations: DataVolumes, Imports, and Upload</a></dt>
+<dd>
+<p>Manage disk image imports, clones, and uploads using the Containerized Data Importer (CDI).</p>
+</dd>
+<dt class="hdlist1"><a href="disk-io-tuning.html" class="xref page">VM Disk I/O Performance Tuning</a></dt>
+<dd>
+<p>Tune disk I/O performance for VM workloads with cache modes, I/O threads, and queue settings.</p>
 </dd>
 </dl>
 </div>
@@ -513,5 +706,8 @@
   <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
 </footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
   </body>
 </html>

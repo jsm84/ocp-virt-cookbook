@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Getting Started :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="../index.html">
-    <link rel="next" href="prerequisites.html">
+    <link rel="next" href="vm-quick-start.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -16,6 +16,11 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
       <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Virtualization cookbook</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -51,10 +56,19 @@
     <a class="nav-link" href="index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-quick-start.html">Quick Start</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture-overview.html">Architecture Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="install-openshift-virtualization.html">Install OpenShift Virtualization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installing-qemu-guest-agent.html">Installing QEMU Guest Agent</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="default-storage-class.html">Storage Setup</a>
@@ -91,6 +105,9 @@
     <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/odf-ceph-storage.html">ODF/Ceph Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -98,6 +115,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/expanding-vm-disk-size.html">Expanding VM Disk Size</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/cdi-operations.html">CDI Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/disk-io-tuning.html">Disk I/O Tuning</a>
   </li>
 </ul>
   </li>
@@ -174,7 +200,13 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/ssh-access-windows-vms.html">Remote Access to Windows VMs via SSH</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/windows-vm-virtio-drivers.html">Windows VMs with VirtIO Drivers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/legacy-windows-versions.html">Legacy Windows Versions</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
@@ -187,6 +219,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
 </ul>
   </li>
@@ -228,6 +263,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/windows-golden-images.html">Windows Golden Images</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
@@ -273,6 +311,24 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/natural-language-vm-create.html">Natural Language VM Creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-lifecycle.html">AI VM Lifecycle Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/vm-clone.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-snapshot-management.html">VM Snapshot Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-skill-chaining.html">Day-2 Skill Chaining</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-rebalance.html">VM Rebalancing and Live Migration</a>
   </li>
 </ul>
   </li>
@@ -328,12 +384,97 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This module covers the essential tools and basic configuration needed to start working with OpenShift Virtualization. Whether you&#8217;re new to OpenShift Virtualization or looking to refresh your knowledge, these guides will help you get up and running quickly.</p>
+<p>This module covers the tools and configuration needed to start working with OpenShift Virtualization. Whether you are new to OpenShift Virtualization or refreshing your knowledge, these guides take you from initial setup to running your first virtual machine.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_youll_learn"><a class="anchor" href="#_what_youll_learn"></a>What You&#8217;ll Learn</h2>
+<h2 id="_learning_path"><a class="anchor" href="#_learning_path"></a>Learning Path</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The diagram below shows the recommended tutorial order. Start with the quick start if you want a running VM in minutes, or follow the full path for a complete understanding.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  FAST TRACK
+  ┌──────────────────────────────────────────────────────┐
+  │  Quick Start — Get a VM running in 5 minutes         │
+  └──────────────────────────────────────────────────────┘
+
+
+  FULL LEARNING PATH
+
+  ┌────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+  │ Prerequisites  ├───►│ Install Operator ├───►│ Default Storage │
+  └────────────────┘    └──────────────────┘    └────────┬────────┘
+                                                         │
+                         ┌───────────────────────────────┤
+                         ▼                               ▼
+                  ┌──────────────┐              ┌────────────────┐
+                  │ Create VM    │              │ Create VM      │
+                  │ (Console)    │              │ (CLI &amp; YAML)   │
+                  └──────┬───────┘              └───────┬────────┘
+                         │                              │
+                         └──────────────┬───────────────┘
+                                        ▼
+                              ┌──────────────────┐
+                              │  VM Lifecycle    │
+                              └────────┬─────────┘
+                                       ▼
+                              ┌──────────────────┐
+                              │  virtctl Basics  │
+                              └────────┬─────────┘
+                                       ▼
+                              ┌──────────────────┐
+                              │  Cloud-init      │
+                              │  Fundamentals    │
+                              └──────────────────┘</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Already have the operator installed? Skip directly to <a href="default-storage-class.html" class="xref page">Configure Storage</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_who_is_this_for"><a class="anchor" href="#_who_is_this_for"></a>Who Is This For?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Different roles can take different paths through this module.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">VM administrator migrating from VMware or Hyper-V</dt>
+<dd>
+<p>Start with <a href="prerequisites.html" class="xref page">Prerequisites and Setup</a> to understand the environment. Then follow <a href="install-openshift-virtualization.html" class="xref page">Installing and Configuring OpenShift Virtualization Operator</a> and <a href="create-vm-web-console.html" class="xref page">Creating VMs from Web Console Using Templates</a> to create your first VM from the web console. Continue with <a href="vm-lifecycle-states.html" class="xref page">Understanding VM Lifecycle States and Basic Operations</a> to learn how VMs are managed in OpenShift.</p>
+</dd>
+<dt class="hdlist1">Developer needing a test VM</dt>
+<dd>
+<p>Start with <a href="vm-quick-start.html" class="xref page">Quick Start: Your First VM in 5 Minutes</a> to get a VM running in minutes. Then read <a href="virtctl-basics.html" class="xref page">Using virtctl for VM Management</a> to manage VMs from the command line.</p>
+</dd>
+<dt class="hdlist1">Platform engineer</dt>
+<dd>
+<p>Follow the full learning path in order: <a href="prerequisites.html" class="xref page">Prerequisites and Setup</a>, <a href="install-openshift-virtualization.html" class="xref page">Installing and Configuring OpenShift Virtualization Operator</a>, <a href="default-storage-class.html" class="xref page">Configuring Default Storage Class</a>, and both VM creation tutorials. After completing this module, continue with the <a href="../networking/index.html" class="xref page">Networking</a> and <a href="../storage/index.html" class="xref page">Storage</a> modules.</p>
+</dd>
+<dt class="hdlist1">Evaluator or decision maker</dt>
+<dd>
+<p>Read <a href="install-openshift-virtualization.html" class="xref page">Installing and Configuring OpenShift Virtualization Operator</a> to understand what the operator provides. Then follow <a href="create-vm-web-console.html" class="xref page">Creating VMs from Web Console Using Templates</a> to see a VM running in the console. The <a href="vm-lifecycle-states.html" class="xref page">Understanding VM Lifecycle States and Basic Operations</a> page shows day-to-day management operations.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_you_will_learn"><a class="anchor" href="#_what_you_will_learn"></a>What You Will Learn</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, you will learn:</p>
@@ -344,10 +485,25 @@
 <p>Prerequisites and required tools for working with OpenShift Virtualization</p>
 </li>
 <li>
+<p>The architecture of OpenShift Virtualization and how VMs run on Kubernetes</p>
+</li>
+<li>
 <p>Basic usage of the virtctl command-line tool for managing virtual machines</p>
 </li>
 <li>
+<p>How to install the OpenShift Virtualization operator</p>
+</li>
+<li>
 <p>How to configure default storage for virtual machine deployments</p>
+</li>
+<li>
+<p>How to create virtual machines from the web console and from the CLI</p>
+</li>
+<li>
+<p>VM lifecycle states and management operations</p>
+</li>
+<li>
+<p>Basic usage of the virtctl command-line tool for managing virtual machines</p>
 </li>
 <li>
 <p>Cloud-init fundamentals and VM initialization patterns</p>
@@ -385,17 +541,21 @@
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a href="vm-quick-start.html" class="xref page">Quick Start: Your First VM in 5 Minutes</a></dt>
+<dd>
+<p>Create and run your first VM in under 5 minutes with minimal setup - the fastest path to a working virtual machine.</p>
+</dd>
 <dt class="hdlist1"><a href="prerequisites.html" class="xref page">Prerequisites and Setup</a></dt>
 <dd>
 <p>Detailed requirements and setup instructions for working with OpenShift Virtualization.</p>
 </dd>
+<dt class="hdlist1"><a href="architecture-overview.html" class="xref page">OpenShift Virtualization Architecture Overview</a></dt>
+<dd>
+<p>Understand how OpenShift Virtualization works: operator hierarchy, VM execution flow, storage and networking models, and comparisons with traditional hypervisors.</p>
+</dd>
 <dt class="hdlist1"><a href="install-openshift-virtualization.html" class="xref page">Installing and Configuring OpenShift Virtualization Operator</a></dt>
 <dd>
 <p>Install and configure the OpenShift Virtualization operator on your cluster.</p>
-</dd>
-<dt class="hdlist1"><a href="virtctl-basics.html" class="xref page">Using virtctl for VM Management</a></dt>
-<dd>
-<p>Learn the essential virtctl commands for managing virtual machines.</p>
 </dd>
 <dt class="hdlist1"><a href="default-storage-class.html" class="xref page">Configuring Default Storage Class</a></dt>
 <dd>
@@ -413,6 +573,10 @@
 <dd>
 <p>Understand VM lifecycle states and basic operations for effective VM management.</p>
 </dd>
+<dt class="hdlist1"><a href="virtctl-basics.html" class="xref page">Using virtctl for VM Management</a></dt>
+<dd>
+<p>Learn the essential virtctl commands for managing virtual machines.</p>
+</dd>
 <dt class="hdlist1"><a href="cloud-init-fundamentals.html" class="xref page">Cloud-init Fundamentals for OpenShift Virtualization VMs</a></dt>
 <dd>
 <p>Learn cloud-init fundamentals, execution stages, common modules, and how to embed cloud-init configuration in VirtualMachine manifests.</p>
@@ -425,7 +589,7 @@
 <h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After completing this module, you&#8217;ll be ready to explore:</p>
+<p>After completing this module, you will be ready to explore:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -444,7 +608,7 @@
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../index.html">Introduction</a></span>
-  <span class="next"><a href="prerequisites.html">Prerequisites</a></span>
+  <span class="next"><a href="vm-quick-start.html">Quick Start</a></span>
 </nav>
 </article>
   </div>
@@ -454,5 +618,8 @@
   <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
 </footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
   </body>
 </html>

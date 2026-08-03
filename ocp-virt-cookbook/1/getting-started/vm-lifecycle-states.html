@@ -16,6 +16,11 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
       <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Virtualization cookbook</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -51,10 +56,19 @@
     <a class="nav-link" href="index.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-quick-start.html">Quick Start</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="prerequisites.html">Prerequisites</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture-overview.html">Architecture Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="install-openshift-virtualization.html">Install OpenShift Virtualization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installing-qemu-guest-agent.html">Installing QEMU Guest Agent</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="default-storage-class.html">Storage Setup</a>
@@ -91,6 +105,9 @@
     <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/odf-ceph-storage.html">ODF/Ceph Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -98,6 +115,15 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/expanding-vm-disk-size.html">Expanding VM Disk Size</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/cdi-operations.html">CDI Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/disk-io-tuning.html">Disk I/O Tuning</a>
   </li>
 </ul>
   </li>
@@ -174,7 +200,13 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/ssh-access-windows-vms.html">Remote Access to Windows VMs via SSH</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/windows-vm-virtio-drivers.html">Windows VMs with VirtIO Drivers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/legacy-windows-versions.html">Legacy Windows Versions</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
@@ -187,6 +219,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
 </ul>
   </li>
@@ -228,6 +263,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/windows-golden-images.html">Windows Golden Images</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
@@ -273,6 +311,24 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../agentic-vm-management/getting-started.html">Getting Started with rh-virt</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/natural-language-vm-create.html">Natural Language VM Creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-lifecycle.html">AI VM Lifecycle Operations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/vm-clone.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-snapshot-management.html">VM Snapshot Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-skill-chaining.html">Day-2 Skill Chaining</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../agentic-vm-management/ai-vm-rebalance.html">VM Rebalancing and Live Migration</a>
   </li>
 </ul>
   </li>
@@ -336,7 +392,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>OpenShift 4.20</pre>
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">OpenShift 4.20</code></pre>
 </div>
 </div>
 </div>
@@ -531,6 +587,75 @@ A stopped VM has a VirtualMachine resource but no VirtualMachineInstance. When y
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_state_transition_diagram"><a class="anchor" href="#_state_transition_diagram"></a>State Transition Diagram</h3>
+<div class="paragraph">
+<p>The following diagram shows how a VM moves between states. Each arrow represents an operation or automatic transition.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">  ┌─────────┐  start   ┌─────────┐        ┌────────────┐        ┌──────────┐
+  │ Stopped │─────────►│ Pending │───────►│ Scheduling │───────►│ Starting │
+  └─────────┘          └─────────┘        └────────────┘        └────┬─────┘
+       ▲                                                              │
+       │                                                              ▼
+  ┌────┴────────┐      ┌──────────┐ stop  ┌─────────┐  pause  ┌─────────┐
+  │ Terminating │◄─────│ Stopping │◄──────│ Running │────────►│ Paused  │
+  └─────────────┘      └──────────┘       └────┬────┘◄────────└─────────┘
+                                               │      unpause
+                                          migrate
+                                               │
+                                               ▼
+                                        ┌───────────┐
+                                        │ Migrating │──► Running (new node)
+                                        └───────────┘</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start</strong> transitions a stopped VM through Pending, Scheduling, Starting, and into Running.</p>
+</li>
+<li>
+<p><strong>Stop</strong> moves a running VM through Stopping and Terminating back to Stopped.</p>
+</li>
+<li>
+<p><strong>Restart</strong> performs a full stop-then-start cycle through all intermediate states.</p>
+</li>
+<li>
+<p><strong>Pause/Unpause</strong> freezes and resumes execution without changing the VMI lifecycle.</p>
+</li>
+<li>
+<p><strong>Migrate</strong> live-migrates the VM to a different node while it stays in the Running state.</p>
+</li>
+<li>
+<p><strong>Delete</strong> removes the VM resource entirely from any state.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_live_migration_as_a_lifecycle_event"><a class="anchor" href="#_live_migration_as_a_lifecycle_event"></a>Live Migration as a Lifecycle Event</h3>
+<div class="paragraph">
+<p>Live migration moves a running VM from one node to another without downtime. You will encounter migrations during:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Node drains</strong>&#8201;&#8212;&#8201;when a node is cordoned for maintenance, running VMs are automatically migrated to other nodes.</p>
+</li>
+<li>
+<p><strong>Cluster upgrades</strong>&#8201;&#8212;&#8201;OpenShift rolls through worker nodes one at a time, triggering migrations for VMs on each node.</p>
+</li>
+<li>
+<p><strong>Rebalancing</strong>&#8201;&#8212;&#8201;administrators or the descheduler may migrate VMs to distribute workloads more evenly across nodes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>During migration, the VM briefly enters a <code>Migrating</code> phase visible in the VMI status. The VM remains accessible throughout the process. Migration requires shared storage (ReadWriteMany PVCs) or uses post-copy migration for non-shared storage configurations.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -637,7 +762,7 @@ fedora-app-vm   78s   Running   10.128.0.184   ocplab01   True</code></pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">virtctl stop fedora-app-vm -n my-vms --force</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">virtctl stop fedora-app-vm -n my-vms --force --grace-period=0</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -1208,6 +1333,40 @@ oc get events -n my-vms --field-selector involvedObject.name=fedora-app-vm</code
 </table>
 </div>
 <div class="sect2">
+<h3 id="_choosing_a_run_strategy"><a class="anchor" href="#_choosing_a_run_strategy"></a>Choosing a Run Strategy</h3>
+<div class="paragraph">
+<p>Use this decision tree to pick the right strategy for your workload:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">  Must the VM always be running?
+      │
+      ├── Yes ──► Always
+      │           Auto-starts, auto-restarts on any stop.
+      │
+      └── No
+           │
+           Should it auto-recover from crashes?
+               │
+               ├── Yes ──► RerunOnFailure
+               │           Restarts on failure, stays stopped
+               │           on guest-initiated shutdown.
+               │
+               └── No
+                    │
+                    Do you want manual start/stop control?
+                        │
+                        ├── Yes ──► Manual
+                        │           Starts and stops only when
+                        │           you explicitly request it.
+                        │
+                        └── No ──► Halted
+                                   VM stays stopped. Use this
+                                   to park a VM during maintenance.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_setting_run_strategy"><a class="anchor" href="#_setting_run_strategy"></a>Setting Run Strategy</h3>
 <div class="paragraph">
 <p><strong>In VM YAML:</strong></p>
@@ -1294,16 +1453,19 @@ You cannot use both <code>runStrategy</code> and the deprecated <code>running</c
 <p>The difference between VirtualMachine and VirtualMachineInstance resources</p>
 </li>
 <li>
-<p>VM lifecycle states and transitions</p>
+<p>VM lifecycle states and how they transition, including the state machine flow</p>
 </li>
 <li>
 <p>How to start, stop, pause, resume, restart, and delete VMs</p>
 </li>
 <li>
+<p>How live migration fits into the VM lifecycle during node drains and upgrades</p>
+</li>
+<li>
 <p>How to monitor VM status using conditions and events</p>
 </li>
 <li>
-<p>How run strategies control automatic VM behavior</p>
+<p>How run strategies control automatic VM behavior and how to choose the right one</p>
 </li>
 </ul>
 </div>
@@ -1321,7 +1483,7 @@ You cannot use both <code>runStrategy</code> and the deprecated <code>running</c
 <p><a href="virtctl-basics.html" class="xref page">Using virtctl for VM Management</a> - CLI commands for VM management</p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/managing-vms" target="_blank" rel="noopener">Managing Virtual Machines - Official Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/OpenShift_container_platform/4.20/html/virtualization/managing-vms" target="_blank" rel="noopener">Managing Virtual Machines - Official Documentation</a></p>
 </li>
 </ul>
 </div>
@@ -1339,5 +1501,8 @@ You cannot use both <code>runStrategy</code> and the deprecated <code>running</c
   <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
 </footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
   </body>
 </html>
