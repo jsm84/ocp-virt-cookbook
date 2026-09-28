@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -383,14 +392,6 @@
 <h1 class="page">Live Migration and Cluster Rebalancing</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.22</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>This tutorial demonstrates how to migrate virtual machines across cluster nodes using natural language commands through the <code>vm-rebalance</code> agent skill. You will learn how to rebalance VMs manually (user-driven) and automatically (AI-driven), understand the differences between live and cold migration, and practice common scenarios such as draining a node for maintenance and optimizing cluster load distribution.</p>
 </div>
@@ -1269,10 +1270,10 @@ worker-02   Ready    &lt;none&gt;</pre>
 <p><a href="https://github.com/openshift/openshift-mcp-server" target="_blank" rel="noopener">OpenShift MCP Server</a></p>
 </li>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/live_migration/virt-about-live-migration.html" target="_blank" rel="noopener">OpenShift Live Migration Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/live_migration/virt-about-live-migration.html" target="_blank" rel="noopener">OpenShift Live Migration Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/compute/live_migration/" target="_blank" rel="noopener">KubeVirt Live Migration Guide</a></p>

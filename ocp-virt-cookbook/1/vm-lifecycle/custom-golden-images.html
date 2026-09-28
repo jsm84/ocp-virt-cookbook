@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -1115,10 +1124,20 @@ webserver-vm-2   5m    Running   10.128.1.153   ocplab01   True</code></pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Example DataSource naming:
-- <code>fedora-nginx-golden-v1</code>
-- <code>fedora-nginx-golden-v2</code>
-- <code>fedora-nginx-golden-2025-10</code></p>
+<p>Example DataSource naming:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fedora-nginx-golden-v1</code></p>
+</li>
+<li>
+<p><code>fedora-nginx-golden-v2</code></p>
+</li>
+<li>
+<p><code>fedora-nginx-golden-2025-10</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1279,7 +1298,7 @@ oc delete namespace golden-images</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/about_virt/about-virt.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/about_virt/about-virt.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/operations/clone_api/" target="_blank" rel="noopener">KubeVirt DataVolume Documentation</a></p>

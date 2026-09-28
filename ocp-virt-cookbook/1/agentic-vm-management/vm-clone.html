@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -383,14 +392,6 @@
 <h1 class="page">Cloning Virtual Machines with AI Agents</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.22</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>This tutorial demonstrates how to clone existing virtual machines using natural language commands through the <code>vm-clone</code> agent skill. The agent retrieves the source VM&#8217;s full configuration and storage layout, asks you to choose a storage cloning strategy, presents a resource-impact summary, and waits for your explicit confirmation before creating any cluster resources.</p>
 </div>
@@ -1067,7 +1068,7 @@ oc delete namespace qa-environment</code></pre>
 <p><a href="https://github.com/openshift/openshift-mcp-server" target="_blank" rel="noopener">OpenShift MCP Server</a></p>
 </li>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/api-reference/" target="_blank" rel="noopener">KubeVirt VirtualMachine API Reference</a></p>

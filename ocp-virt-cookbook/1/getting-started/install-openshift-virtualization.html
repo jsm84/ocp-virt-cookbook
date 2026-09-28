@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -467,7 +476,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_operators_openshift_cnv_namespace"><a class="anchor" href="#_operators_openshift_cnv_namespace"></a>Operators (openshift-cnv namespace)</h3>
+<h3 id="_operators_openshift_cnv_namespace"><a class="anchor" href="#_operators_openshift_cnv_namespace"></a>Operators (<code>openshift-cnv</code> namespace)</h3>
 <div class="paragraph">
 <p>The HyperConverged custom resource (CR) is the single entry point for the entire stack. Creating one <code>HyperConverged</code> CR triggers the deployment of four sub-operators:</p>
 </div>
@@ -570,14 +579,6 @@ For a broader architecture overview including VM execution flows, storage and ne
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.18, 4.19, 4.20, 4.21</pre>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -587,7 +588,7 @@ For a broader architecture overview including VM execution flows, storage and ne
 <p>Before installing OpenShift Virtualization, ensure your cluster meets the hardware, operating system, storage, and network requirements.</p>
 </div>
 <div class="paragraph">
-<p>For detailed requirements including CPU specifications, supported platforms, storage considerations, and resource overhead, see <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/installing#virt-preparing-cluster-for-virt_preparing-cluster-for-virt" target="_blank" rel="noopener">Preparing your cluster for OpenShift Virtualization</a>.</p>
+<p>For detailed requirements including CPU specifications, supported platforms, storage considerations, and resource overhead, see <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/installing#virt-preparing-cluster-for-virt_preparing-cluster-for-virt" target="_blank" rel="noopener">Preparing your cluster for OpenShift Virtualization</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -828,7 +829,7 @@ EOF</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The minimal HyperConverged spec above uses all default settings. For advanced configuration options, see the <a href="https://docs.openshift.com/container-platform/latest/virt/install/installing-virt.html#virt-customizing-storage-profile_installing-virt" target="_blank" rel="noopener">official documentation</a>.
+The minimal HyperConverged spec above uses all default settings. For advanced configuration options, see the <a href="https://docs.openshift.com/container-platform/4.22/virt/install/installing-virt.html#virt-customizing-storage-profile_installing-virt" target="_blank" rel="noopener">official documentation</a>.
 </td>
 </tr>
 </table>
@@ -1100,10 +1101,10 @@ oc get csv -n openshift-cnv</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/installing" target="_blank" rel="noopener">OpenShift Virtualization Installation Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/installing" target="_blank" rel="noopener">OpenShift Virtualization Installation Documentation</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/getting-started" target="_blank" rel="noopener">OpenShift Virtualization Getting Started</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/getting-started" target="_blank" rel="noopener">OpenShift Virtualization Getting Started</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/architecture/" target="_blank" rel="noopener">KubeVirt Architecture</a></p>

@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -383,14 +392,6 @@
 <h1 class="page">AI-Assisted VM Lifecycle Operations</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.22</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>This tutorial demonstrates how to manage the lifecycle of OpenShift VirtualMachines using natural language commands through the <code>vm-lifecycle-manager</code> and <code>vm-delete</code> agent skills. You will learn how to start, stop, restart, and delete VMs with human-in-the-loop safety confirmations, and how the agent handles edge cases like protected VMs and running VM deletion.</p>
 </div>
@@ -1132,7 +1133,7 @@ KubeVirt also supports <code>RerunOnFailure</code> (restarts only on non-zero ex
 <p><a href="https://github.com/openshift/openshift-mcp-server" target="_blank" rel="noopener">OpenShift MCP Server</a></p>
 </li>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/virtual_machines/run_strategies/" target="_blank" rel="noopener">KubeVirt RunStrategy Documentation</a></p>

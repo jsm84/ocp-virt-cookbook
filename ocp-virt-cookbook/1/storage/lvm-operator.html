@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -407,14 +416,6 @@
 <p><strong>Disk can have existing data</strong>: The operator can force-wipe disks using the <code>forceWipeDevicesAndDestroyAllData</code> parameter</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.19, 4.20</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1270,10 +1271,10 @@ oc debug node/&lt;node-name&gt; -- chroot /host lsblk -d -o NAME,SERIAL /dev/sda
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/storage/persistent-storage-using-local-storage#persistent-storage-using-lvms" target="_blank" rel="noopener">Persistent Storage Using LVM Storage</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/storage/persistent-storage-using-local-storage#persistent-storage-using-lvms" target="_blank" rel="noopener">Persistent Storage Using LVM Storage</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/storage/understanding-persistent-storage#storage-classes_understanding-persistent-storage" target="_blank" rel="noopener">Understanding Persistent Storage</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/storage/understanding-persistent-storage#storage-classes_understanding-persistent-storage" target="_blank" rel="noopener">Understanding Persistent Storage</a></p>
 </li>
 </ul>
 </div>

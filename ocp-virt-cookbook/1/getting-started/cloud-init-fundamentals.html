@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -412,14 +421,6 @@ This tutorial introduces how cloud-init works, how KubeVirt delivers it to VMs, 
 <p>How to verify cloud-init ran successfully</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">OpenShift 4.18+</code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -1013,6 +1014,26 @@ packages:
 <td>KubeVirt reads the <code>userdata</code> key from the Secret and delivers it as the cloud-init userData.</td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>For networkData, use <code>networkDataSecretRef</code> instead of <code>secretRef</code> for referencing the Secret containing the network configuration.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://kubevirt.io/user-guide/user_workloads/startup_scripts/#cloud-init-network-config-as-k8s-secret" target="_blank" rel="noopener">Cloud-init network configuration</a></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">volumes:
+  - cloudInitNoCloud:
+      secretRef:
+        name: my-vm-userdata
+      networkDataSecretRef:
+        name: my-vm-networkdata
+    name: cloudinitdisk</code></pre>
+</div>
 </div>
 </div>
 </div>

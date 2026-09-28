@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -384,14 +393,6 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.20</pre>
-</div>
-</div>
-<div class="paragraph">
 <p>This tutorial demonstrates how to configure localnet secondary networks using ClusterUserDefinedNetwork (CUDN) in OpenShift Virtualization. Localnet topology provides direct access to physical network infrastructure, enabling VMs to communicate with external networks while maintaining pod network connectivity. This approach is ideal for integrating with existing infrastructure or legacy systems requiring layer 2 connectivity.</p>
 </div>
 </div>
@@ -411,14 +412,6 @@
 <p><strong>Worker nodes</strong>: The bridge mapping will be applied to worker nodes</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.19</pre>
-</div>
 </div>
 </div>
 </div>
@@ -501,10 +494,10 @@ spec:
   network:
     topology: Localnet
     localnet:
-        role: Secondary
-        physicalNetworkName: localnet1
-        ipam:
-          mode: Disabled
+      role: Secondary
+      physicalNetworkName: localnet1
+      ipam:
+        mode: Disabled
 EOF</code></pre>
 </div>
 </div>
@@ -543,6 +536,10 @@ metadata:
     app: fedora-localnet-vm
 spec:
   runStrategy: Always
+  instancetype:
+    name: u1.small
+  preference:
+    name: fedora
   dataVolumeTemplates:
   - metadata:
       name: fedora-localnet-volume
@@ -566,20 +563,14 @@ spec:
         devices:
           disks:
           - name: datavolumedisk
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - name: default
             bridge: {}
           - name: secondary_localnet
             bridge: {}
-        resources:
-          requests:
-            memory: 2Gi
-            cpu: 1
       networks:
       - name: default
         pod: {}
@@ -688,10 +679,10 @@ curl &lt;localnet-ip&gt;:8080</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/virtualization/networking#virt-creating-secondary-localnet-udn_virt-connecting-vm-to-secondary-udn" target="_blank" rel="noopener">Localnet Topology Configuration for OCP Virtualization</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-creating-secondary-localnet-udn_virt-connecting-vm-to-secondary-udn" target="_blank" rel="noopener">Localnet Topology Configuration for OCP Virtualization</a></p>
 </li>
 </ul>
 </div>

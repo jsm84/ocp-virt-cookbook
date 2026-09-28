@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -626,6 +635,10 @@ metadata:
   namespace: vm-placement
 spec:
   runStrategy: Manual
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -634,30 +647,24 @@ spec:
       nodeSelector:
         storage: ssd  # VM will only run on nodes with storage=ssd label
       domain:
-        cpu:
-          cores: 2
-        memory:
-          guest: 4Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+            - name: rootdisk
+              disk: {}
+            - name: cloudinitdisk
+              disk: {}
       volumes:
-      - name: rootdisk
-        containerDisk:
-          image: quay.io/containerdisks/fedora:43
-      - name: cloudinitdisk
-        cloudInitNoCloud:
-          userData: |
-            #cloud-config
-            user: fedora
-            password: fedora
-            chpasswd:
-              expire: false</code></pre>
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:43
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd:
+                expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -752,6 +759,10 @@ metadata:
   namespace: vm-placement
 spec:
   runStrategy: Manual
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -761,41 +772,35 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-            - matchExpressions:
-              - key: gpu
-                operator: In
-                values:
-                - nvidia-t4
-                - nvidia-a100
-              - key: env
-                operator: In
-                values:
-                - production
+              - matchExpressions:
+                  - key: gpu
+                    operator: In
+                    values:
+                      - nvidia-t4
+                      - nvidia-a100
+                  - key: env
+                    operator: In
+                    values:
+                      - production
       domain:
-        cpu:
-          cores: 4
-        memory:
-          guest: 8Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+            - name: rootdisk
+              disk: {}
+            - name: cloudinitdisk
+              disk: {}
       volumes:
-      - name: rootdisk
-        containerDisk:
-          image: quay.io/containerdisks/fedora:43
-      - name: cloudinitdisk
-        cloudInitNoCloud:
-          userData: |
-            #cloud-config
-            user: fedora
-            password: fedora
-            chpasswd:
-              expire: false</code></pre>
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:43
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd:
+                expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -835,6 +840,10 @@ metadata:
   namespace: vm-placement
 spec:
   runStrategy: Manual
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -843,45 +852,39 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: storage
-                operator: In
-                values:
-                - nvme
-          - weight: 50
-            preference:
-              matchExpressions:
-              - key: storage
-                operator: In
-                values:
-                - ssd
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: storage
+                    operator: In
+                    values:
+                      - nvme
+            - weight: 50
+              preference:
+                matchExpressions:
+                  - key: storage
+                    operator: In
+                    values:
+                      - ssd
       domain:
-        cpu:
-          cores: 2
-        memory:
-          guest: 2Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+            - name: rootdisk
+              disk: {}
+            - name: cloudinitdisk
+              disk: {}
       volumes:
-      - name: rootdisk
-        containerDisk:
-          image: quay.io/containerdisks/fedora:43
-      - name: cloudinitdisk
-        cloudInitNoCloud:
-          userData: |
-            #cloud-config
-            user: fedora
-            password: fedora
-            chpasswd:
-              expire: false</code></pre>
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:43
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd:
+                expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -956,6 +959,10 @@ metadata:
   namespace: vm-placement
 spec:
   runStrategy: Manual
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -965,38 +972,32 @@ spec:
       affinity:
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - database
-            topologyKey: kubernetes.io/hostname
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - database
+              topologyKey: kubernetes.io/hostname
       domain:
-        cpu:
-          cores: 2
-        memory:
-          guest: 2Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+            - name: rootdisk
+              disk: {}
+            - name: cloudinitdisk
+              disk: {}
       volumes:
-      - name: rootdisk
-        containerDisk:
-          image: quay.io/containerdisks/fedora:43
-      - name: cloudinitdisk
-        cloudInitNoCloud:
-          userData: |
-            #cloud-config
-            user: fedora
-            password: fedora
-            chpasswd:
-              expire: false</code></pre>
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:43
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd:
+                expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1049,6 +1050,10 @@ metadata:
   namespace: vm-placement
 spec:
   runStrategy: Manual
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -1058,38 +1063,32 @@ spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - redis-cache
-            topologyKey: kubernetes.io/hostname
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - redis-cache
+              topologyKey: kubernetes.io/hostname
       domain:
-        cpu:
-          cores: 2
-        memory:
-          guest: 4Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+            - name: rootdisk
+              disk: {}
+            - name: cloudinitdisk
+              disk: {}
       volumes:
-      - name: rootdisk
-        containerDisk:
-          image: quay.io/containerdisks/fedora:43
-      - name: cloudinitdisk
-        cloudInitNoCloud:
-          userData: |
-            #cloud-config
-            user: fedora
-            password: fedora
-            chpasswd:
-              expire: false</code></pre>
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:43
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd:
+                expire: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1615,7 +1614,7 @@ oc get nodes --show-labels | grep -E "storage|workload"</code></pre>
 <p><a href="../getting-started/virtctl-basics.html" class="xref page">Using virtctl for VM Management</a> - CLI commands for VM management</p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/nodes#virt-node-placement-vms" target="_blank" rel="noopener">Node Placement for Virtual Machines - Red Hat Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/nodes#virt-node-placement-vms" target="_blank" rel="noopener">Node Placement for Virtual Machines - Red Hat Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/" target="_blank" rel="noopener">Assigning Pods to Nodes - Kubernetes Documentation</a></p>

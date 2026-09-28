@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Instancetype and Preference for Virtual Machine Definitions :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="vm-templates.html">
-    <link rel="next" href="../performance/index.html">
+    <link rel="next" href="hyperconverged-configuration.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -223,6 +223,9 @@
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -402,14 +411,6 @@
 </div>
 <div class="paragraph">
 <p>Together, they reduce a VM manifest from 30+ lines of domain spec down to a few references by name. OpenShift Virtualization ships with a set of predefined cluster-scoped instancetypes and preferences, and you can create your own for specific workloads.</p>
-</div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.21</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1249,7 +1250,7 @@ spec:
 <p><a href="../getting-started/create-vm-cli-yaml.html" class="xref page">Creating VMs from CLI Using YAML Manifests</a>&#8201;&#8212;&#8201;Foundational guide to creating VMs with YAML</p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/creating-a-virtual-machine#virt-creating-vms-from-instance-types" target="_blank" rel="noopener">Creating VMs from instance types - Official Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/managing-vms#virt-creating-vms-from-instance-types" target="_blank" rel="noopener">Creating VMs from instance types - Official Documentation</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/virtual_machines/instancetypes/" target="_blank" rel="noopener">KubeVirt Instancetypes User Guide</a></p>
@@ -1260,7 +1261,7 @@ spec:
 </div>
 <nav class="pagination">
   <span class="prev"><a href="vm-templates.html">Virtual Machine Templates</a></span>
-  <span class="next"><a href="../performance/index.html">VM Performance Tuning</a></span>
+  <span class="next"><a href="hyperconverged-configuration.html">HyperConverged Configuration</a></span>
 </nav>
 </article>
   </div>

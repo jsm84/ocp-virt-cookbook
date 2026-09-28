@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -409,14 +418,6 @@
 <p><strong>Switch Configuration</strong>: Physical switch ports connected to OpenShift worker nodes must be configured in <strong>trunk mode</strong> to handle multiple VLAN-tagged traffic streams</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.19</pre>
-</div>
 </div>
 </div>
 </div>
@@ -646,6 +647,10 @@ metadata:
     app: fedora-cudn-vlan-vm
 spec:
   runStrategy: Always
+  instancetype:
+    name: u1.small
+  preference:
+    name: fedora
   dataVolumeTemplates:
   - metadata:
       name: fedora-cudn-vlan-volume
@@ -669,20 +674,14 @@ spec:
         devices:
           disks:
           - name: datavolumedisk
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - name: default
             bridge: {}
           - name: cudn_vlan_network
             bridge: {}
-        resources:
-          requests:
-            memory: 2Gi
-            cpu: 1
       networks:
       - name: default
         pod: {}
@@ -744,6 +743,10 @@ metadata:
     app: fedora-cudn-vlan-vm-dev
 spec:
   runStrategy: Always
+  instancetype:
+    name: u1.small
+  preference:
+    name: fedora
   dataVolumeTemplates:
   - metadata:
       name: fedora-cudn-vlan-volume-dev
@@ -767,20 +770,14 @@ spec:
         devices:
           disks:
           - name: datavolumedisk
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - name: default
             bridge: {}
           - name: cudn_vlan_network
             bridge: {}
-        resources:
-          requests:
-            memory: 2Gi
-            cpu: 1
       networks:
       - name: default
         pod: {}
@@ -1101,10 +1098,10 @@ oc get network-attachment-definitions -A | grep cudn-localnet-vlan-100</code></p
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/virtualization/networking#virt-creating-secondary-localnet-cudn_virt-connecting-vm-to-secondary-cudn" target="_blank" rel="noopener">ClusterUserDefinedNetwork Configuration</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-creating-secondary-localnet-cudn_virt-connecting-vm-to-secondary-cudn" target="_blank" rel="noopener">ClusterUserDefinedNetwork Configuration</a></p>
 </li>
 </ul>
 </div>

@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -483,6 +492,10 @@ spec:
           resources:
             requests:
               storage: 30Gi
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
@@ -492,18 +505,13 @@ spec:
       domain:
         devices:
           disks:
-            - disk:
-                bus: virtio
+            - disk: {}
               name: rootdisk
-            - disk:
-                bus: virtio
+            - disk: {}
               name: cloudinitdisk
           interfaces:
             - name: default
               masquerade: {}
-        resources:
-          requests:
-            memory: 2Gi
       networks:
         - name: default
           pod: {}
@@ -944,10 +952,10 @@ oc delete pod debug-cross-ns -n test-namespace</code></pre>
 <p><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/" target="_blank" rel="noopener">Kubernetes DNS for Services and Pods</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/networking#virt-accessing-vm-internal-fqdn" target="_blank" rel="noopener">Accessing a VM by using the internal FQDN - OpenShift Virtualization</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-accessing-vm-internal-fqdn" target="_blank" rel="noopener">Accessing a VM by using the internal FQDN - OpenShift Virtualization</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/networking#virt-accessing-vm-secondary-network-fqdn" target="_blank" rel="noopener">Accessing a VM on a secondary network by using the cluster FQDN - OpenShift Virtualization</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-accessing-vm-secondary-network-fqdn" target="_blank" rel="noopener">Accessing a VM on a secondary network by using the cluster FQDN - OpenShift Virtualization</a></p>
 </li>
 </ul>
 </div>

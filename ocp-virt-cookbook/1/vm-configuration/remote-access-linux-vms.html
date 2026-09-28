@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -499,9 +508,7 @@ metadata:
   namespace: vm-access-demo
 spec:
   dataVolumeTemplates:
-    - apiVersion: cdi.kubevirt.io/v1beta1
-      kind: DataVolume
-      metadata:
+    - metadata:
         name: fedora-access-vm-disk
       spec:
         sourceRef:
@@ -513,30 +520,25 @@ spec:
             requests:
               storage: 30Gi
   runStrategy: RerunOnFailure
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
         kubevirt.io/domain: fedora-access-vm
     spec:
       domain:
-        cpu:
-          cores: 2
         devices:
           disks:
-            - disk:
-                bus: virtio
+            - disk: {}
               name: rootdisk
-            - disk:
-                bus: virtio
+            - disk: {}
               name: cloudinitdisk
           interfaces:
             - masquerade: {}
               name: default
-          rng: {}
-        machine:
-          type: pc-q35-rhel9.4.0
-        memory:
-          guest: 4Gi
       networks:
         - name: default
           pod: {}
@@ -783,8 +785,7 @@ spec:
   ports:
     - protocol: TCP
       port: 22
-      targetPort: 22
-      nodePort: 30022</code></pre>
+      targetPort: 22</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -803,15 +804,19 @@ spec:
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get svc fedora-ssh-nodeport -n vm-access-demo</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Note the assigned NodePort in the output (will be in the range 30000-32767).</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_connect_via_ssh_2"><a class="anchor" href="#_connect_via_ssh_2"></a>Connect via SSH</h3>
 <div class="paragraph">
-<p>Get your cluster node IP:</p>
+<p>Get your cluster node IP and the assigned NodePort:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get nodes -o wide</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get nodes -o wide
+oc get svc fedora-ssh-nodeport -n vm-access-demo -o jsonpath='{.spec.ports[0].nodePort}'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -819,7 +824,7 @@ spec:
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh fedora@&lt;node-ip&gt; -p 30022</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh fedora@&lt;node-ip&gt; -p &lt;nodeport&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -981,9 +986,7 @@ metadata:
   namespace: vm-access-demo
 spec:
   dataVolumeTemplates:
-    - apiVersion: cdi.kubevirt.io/v1beta1
-      kind: DataVolume
-      metadata:
+    - metadata:
         name: fedora-vlan-vm-disk
       spec:
         sourceRef:
@@ -995,32 +998,27 @@ spec:
             requests:
               storage: 30Gi
   runStrategy: RerunOnFailure
+  instancetype:
+    name: u1.large
+  preference:
+    name: fedora
   template:
     metadata:
       labels:
         kubevirt.io/domain: fedora-vlan-vm
     spec:
       domain:
-        cpu:
-          cores: 2
         devices:
           disks:
-            - disk:
-                bus: virtio
+            - disk: {}
               name: rootdisk
-            - disk:
-                bus: virtio
+            - disk: {}
               name: cloudinitdisk
           interfaces:
             - masquerade: {}
               name: default
             - bridge: {}
               name: vlan-network
-          rng: {}
-        machine:
-          type: pc-q35-rhel9.4.0
-        memory:
-          guest: 4Gi
       networks:
         - name: default
           pod: {}
@@ -1508,7 +1506,7 @@ oc delete namespace vm-access-demo</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/virtualization/managing-vms" target="_blank" rel="noopener">Managing VMs</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/managing-vms" target="_blank" rel="noopener">Managing VMs</a></p>
 </li>
 </ul>
 </div>

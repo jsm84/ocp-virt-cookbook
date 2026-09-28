@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -387,14 +396,6 @@
 <div class="paragraph">
 <p>This tutorial shows you how to create a primary network using User Defined Networks (UDNs) with Layer 2 topology in OpenShift Virtualization. Instead of using the cluster&#8217;s default network, UDNs let you define custom IP ranges and provide complete network isolation for applications within a specific namespace. This approach is ideal when applications need direct control over IP addressing or require custom networking requirements. The entire setup takes just 5 straightforward steps without requiring additional network attachment definitions.</p>
 </div>
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.19, 4.20, 4.21</pre>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -403,7 +404,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.19+ cluster with OpenShift Virtualization operator installed</p>
+<p>OpenShift 4.18+ cluster with OpenShift Virtualization operator installed</p>
 </li>
 <li>
 <p>OVN-Kubernetes network plugin (default in OpenShift)</p>
@@ -517,6 +518,10 @@ metadata:
     network-type: udn-primary
 spec:
   runStrategy: Always
+  instancetype:
+    name: u1.small
+  preference:
+    name: fedora
   dataVolumeTemplates:
   - metadata:
       name: fedora-udn-volume
@@ -540,19 +545,13 @@ spec:
         devices:
           disks:
           - name: datavolumedisk
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - name: default
             binding:
               name: l2bridge
-        resources:
-          requests:
-            memory: 2Gi
-            cpu: 1
       networks:
       - name: default
         pod: {}
@@ -597,7 +596,7 @@ EOF</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cloud services like AWS automatically deploy a load balancer for this configuration. For bare metal deployments, consider using <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/ingress_and_load_balancing/load-balancing-with-metallb" target="_blank" rel="noopener">MetalLB</a> as your load balancer.
+Cloud services like AWS automatically deploy a load balancer for this configuration. For bare metal deployments, consider using <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/ingress_and_load_balancing/load-balancing-with-metallb" target="_blank" rel="noopener">MetalLB</a> as your load balancer.
 </td>
 </tr>
 </table>
@@ -645,8 +644,8 @@ EOF</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME                    TYPE           CLUSTER-IP      EXTERNAL-IP                                                                  PORT(S)        AGE
-fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb9990db9-1996929606.ca-central-1.elb.amazonaws.com   80:32291/TCP   45m</pre>
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">NAME                    TYPE           CLUSTER-IP      EXTERNAL-IP                                                                  PORT(S)        AGE
+fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb9990db9-1996929606.ca-central-1.elb.amazonaws.com   80:32291/TCP   45m</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -662,9 +661,75 @@ fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;h1&gt;Welcome to OpenShift Virtualization !!!&lt;/h1&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;h1&gt;Welcome to OpenShift Virtualization !!!&lt;/h1&gt;</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_network_topology"><a class="anchor" href="#_network_topology"></a>Network Topology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following diagram illustrates how a UDN primary network provides namespace-scoped network isolation with custom IP addressing. Unlike secondary networks that add an interface alongside the default pod network, a UDN primary network replaces the default pod network entirely for all workloads in the namespace.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/udn-primary-topology.png" alt="UDN Primary Network Topology">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>UserDefinedNetwork</code> resource with <code>Layer2</code> topology and <code>role: Primary</code> configures OVN-Kubernetes to manage a custom subnet (192.168.100.0/24) for the labeled namespace. OVN-Kubernetes IPAM assigns addresses from this subnet with <code>Persistent</code> lifecycle, meaning VMs retain their IPs across restarts and migrations. Each VM&#8217;s primary interface connects through an l2bridge binding directly to the UDN, with no Multus plugin or <code>NetworkAttachmentDefinition</code> required. External access is provided through standard Kubernetes Services, such as a LoadBalancer that routes traffic to VMs on the UDN subnet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The namespace must be labeled with <code>k8s.ovn.org/primary-user-defined-network</code> before any workloads are deployed. This label cannot be added or removed after pods or VMs are running in the namespace.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_use_cases"><a class="anchor" href="#_business_use_cases"></a>Business Use Cases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>UDN primary networks are best suited for workloads that require complete network isolation with custom IP addressing at the namespace level.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multi-tenant SaaS platforms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each tenant gets a dedicated namespace with an isolated subnet. VMs in one tenant&#8217;s namespace cannot reach VMs in another tenant&#8217;s namespace, providing network-level tenant isolation without physical network segmentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Development and test environments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Teams get namespaces with custom IP ranges (e.g., 10.0.1.0/24 for dev, 10.0.2.0/24 for staging), allowing developers to define addressing schemes that mirror production without conflicting with other teams or the cluster&#8217;s default network.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster-managed IP persistence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VMs that require stable IP addresses across restarts and live migrations. With <code>Persistent</code> IPAM lifecycle, database servers, monitoring agents, and clustered applications retain their addresses without external DHCP or static configuration inside the guest.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison with secondary networks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choose UDN primary networks when workloads should not use the default pod network at all and need namespace-level isolation. Choose Layer 2 secondary networks when VMs need an additional private network alongside the default pod network, such as for dedicated replication or heartbeat traffic.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -700,10 +765,10 @@ fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/multiple_networks/understanding-multiple-networks" target="_blank" rel="noopener">OpenShift - Understanding Multiple Networks</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/multiple_networks/primary-networks" target="_blank" rel="noopener">Configuring Primary Networks</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/multiple_networks/primary-networks" target="_blank" rel="noopener">Configuring Primary Networks</a></p>
 </li>
 </ul>
 </div>

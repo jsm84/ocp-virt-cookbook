@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -384,14 +393,6 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.21</pre>
-</div>
-</div>
-<div class="paragraph">
 <p>SR-IOV (Single Root I/O Virtualization) enables a single physical network adapter to present multiple virtual functions (VFs) that can be passed directly into virtual machines.
 Unlike software-based networking (OVN overlays, Linux bridges), SR-IOV bypasses the host network stack entirely, giving the VM near-native network performance.
 This makes SR-IOV the right choice for workloads that demand high throughput, low latency, or both&#8201;&#8212;&#8201;such as network functions (NFV), real-time data processing, and large-scale data transfers.</p>
@@ -412,7 +413,7 @@ This pattern is standard in telco environments where network functions like User
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.18+ cluster (tested on 4.21) with OpenShift Virtualization operator installed</p>
+<p>OpenShift 4.18+ cluster with OpenShift Virtualization operator installed</p>
 </li>
 <li>
 <p>SR-IOV Network Operator installed in the cluster</p>
@@ -823,6 +824,10 @@ metadata:
     app: fedora-sriov-vm
 spec:
   runStrategy: Always
+  instancetype:
+    name: u1.medium
+  preference:
+    name: fedora
   dataVolumeTemplates:
   - metadata:
       name: fedora-sriov-volume
@@ -846,11 +851,9 @@ spec:
         devices:
           disks:
           - name: datavolumedisk
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - name: default
             masquerade: {}
@@ -858,10 +861,6 @@ spec:
             sriov: {}
           - name: mgmt-plane
             sriov: {}
-        resources:
-          requests:
-            memory: 4Gi
-            cpu: 2
       networks:
       - name: default
         pod: {}
@@ -1274,10 +1273,10 @@ In production, use one of these persistent alternatives:
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/networking/hardware-networks" target="_blank" rel="noopener">OpenShift Hardware Networks</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/hardware_networks/about-sriov" target="_blank" rel="noopener">OpenShift Hardware Networks</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/virtualization/networking#virt-attaching-vm-to-sriov-network" target="_blank" rel="noopener">Connecting a VM to an SR-IOV Network</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-attaching-vm-to-sriov-network" target="_blank" rel="noopener">Connecting a VM to an SR-IOV Network</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/network/interfaces_and_networks/#sriov" target="_blank" rel="noopener">KubeVirt SR-IOV Interface Binding</a></p>

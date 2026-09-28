@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -383,14 +392,6 @@
 <h1 class="page">VM Snapshot Management with Agentic Workflows</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.22</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>This tutorial demonstrates how to manage the full virtual machine snapshot lifecycle using natural language commands through four agent skills: <code>vm-snapshot-create</code>, <code>vm-snapshot-list</code>, <code>vm-snapshot-restore</code>, and <code>vm-snapshot-delete</code>. You will walk through a realistic scenario of creating a pre-upgrade snapshot, listing available snapshots, restoring after a failed upgrade, verifying the restored VM, and cleaning up old snapshots.</p>
 </div>
@@ -1467,10 +1468,10 @@ sudo systemctl enable --now qemu-guest-agent</code></pre>
 <p><a href="https://github.com/openshift/openshift-mcp-server" target="_blank" rel="noopener">OpenShift MCP Server</a></p>
 </li>
 <li>
-<p><a href="https://docs.openshift.com/container-platform/latest/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
+<p><a href="https://docs.openshift.com/container-platform/4.22/virt/index.html" target="_blank" rel="noopener">OpenShift Virtualization Documentation</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html-single/virtualization/index#virt-backup-restore-snapshots" target="_blank" rel="noopener">OpenShift Virtualization Snapshots</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html-single/virtualization/index#virt-backup-restore-snapshots" target="_blank" rel="noopener">OpenShift Virtualization Snapshots</a></p>
 </li>
 <li>
 <p><a href="https://kubevirt.io/user-guide/operations/snapshot_restore_api/" target="_blank" rel="noopener">KubeVirt Snapshot and Restore API</a></p>

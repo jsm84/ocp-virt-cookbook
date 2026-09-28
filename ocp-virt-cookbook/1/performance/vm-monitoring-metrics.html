@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>VM Monitoring and Metrics :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="realtime-vms.html">
-    <link rel="next" href="../vm-lifecycle/index.html">
+    <link rel="next" href="nested-virtualization.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -499,6 +508,10 @@ metadata:
   labels:
     app: monitoring-demo
 spec:
+  instancetype:
+    name: u1.small
+  preference:
+    name: fedora
   runStrategy: Always
   template:
     metadata:
@@ -506,21 +519,15 @@ spec:
         kubevirt.io/domain: monitoring-test-vm
     spec:
       domain:
-        cpu:
-          cores: 2
-        memory:
-          guest: 2Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
-              bus: virtio
-          - name: cloudinitdisk
-            disk:
-              bus: virtio
+          - disk: {}
+            name: rootdisk
+          - disk: {}
+            name: cloudinitdisk
           interfaces:
-          - name: default
-            masquerade: {}
+          - masquerade: {}
+            name: default
       networks:
       - name: default
         pod: {}
@@ -858,10 +865,20 @@ This requires cluster admin permissions and additional setup beyond this tutoria
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Installation overview:</strong>
-* Install Grafana Operator from OperatorHub
-* Configure Prometheus data source
-* Import or create VM monitoring dashboards</p>
+<p><strong>Installation overview:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install Grafana Operator from OperatorHub</p>
+</li>
+<li>
+<p>Configure Prometheus data source</p>
+</li>
+<li>
+<p>Import or create VM monitoring dashboards</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For basic VM monitoring, the built-in OpenShift metrics interface is usually sufficient.</p>
@@ -1193,11 +1210,23 @@ systemctl enable --now qemu-guest-agent</code></pre>
 <p><strong>Symptom</strong>: Empty charts or "No data available"</p>
 </div>
 <div class="paragraph">
-<p><strong>Solutions</strong>:
-* Wait 2-3 minutes for metrics collection to begin
-* Verify the VM is in Running state: <code>oc get vm</code>
-* Check that cluster monitoring is enabled in OpenShift
-* Ensure proper time synchronization between browser and cluster</p>
+<p><strong>Solutions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wait 2-3 minutes for metrics collection to begin</p>
+</li>
+<li>
+<p>Verify the VM is in Running state: <code>oc get vm</code></p>
+</li>
+<li>
+<p>Check that cluster monitoring is enabled in OpenShift</p>
+</li>
+<li>
+<p>Ensure proper time synchronization between browser and cluster</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1206,11 +1235,23 @@ systemctl enable --now qemu-guest-agent</code></pre>
 <p><strong>Symptom</strong>: Limited guest OS information in web console</p>
 </div>
 <div class="paragraph">
-<p><strong>Solutions</strong>:
-* Verify guest agent installation: <code>systemctl status qemu-guest-agent</code>
-* Restart the guest agent: <code>systemctl restart qemu-guest-agent</code>
-* Check VM template includes guest agent installation
-* Ensure the VM&#8217;s operating system supports QEMU guest agent</p>
+<p><strong>Solutions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Verify guest agent installation: <code>systemctl status qemu-guest-agent</code></p>
+</li>
+<li>
+<p>Restart the guest agent: <code>systemctl restart qemu-guest-agent</code></p>
+</li>
+<li>
+<p>Check VM template includes guest agent installation</p>
+</li>
+<li>
+<p>Ensure the VM&#8217;s operating system supports QEMU guest agent</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1219,11 +1260,23 @@ systemctl enable --now qemu-guest-agent</code></pre>
 <p><strong>Symptom</strong>: Monitoring stack consuming excessive cluster resources</p>
 </div>
 <div class="paragraph">
-<p><strong>Solutions</strong>:
-* Adjust Prometheus retention period if storage is limited
-* Reduce scrape intervals for non-critical metrics
-* Use recording rules for frequently-queried complex expressions
-* Consider dedicated monitoring nodes for large clusters</p>
+<p><strong>Solutions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adjust Prometheus retention period if storage is limited</p>
+</li>
+<li>
+<p>Reduce scrape intervals for non-critical metrics</p>
+</li>
+<li>
+<p>Use recording rules for frequently-queried complex expressions</p>
+</li>
+<li>
+<p>Consider dedicated monitoring nodes for large clusters</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1280,7 +1333,7 @@ systemctl enable --now qemu-guest-agent</code></pre>
 <p><a href="resource-limits-qos.html" class="xref page">VM Resource Limits and QoS</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/monitoring#virt-monitoring_virt-monitoring" target="_blank" rel="noopener">OpenShift Virtualization Monitoring Documentation</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/monitoring#virt-monitoring_virt-monitoring" target="_blank" rel="noopener">OpenShift Virtualization Monitoring Documentation</a></p>
 </li>
 <li>
 <p><a href="https://prometheus.io/docs/prometheus/latest/querying/basics/" target="_blank" rel="noopener">Prometheus Query Language (PromQL)</a></p>
@@ -1297,7 +1350,7 @@ systemctl enable --now qemu-guest-agent</code></pre>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="realtime-vms.html">Real-Time VMs</a></span>
-  <span class="next"><a href="../vm-lifecycle/index.html">VM Lifecycle Management</a></span>
+  <span class="next"><a href="nested-virtualization.html">Nested Virtualization</a></span>
 </nav>
 </article>
   </div>

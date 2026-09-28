@@ -223,6 +223,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/instancetype-preference.html">Instancetype and Preference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -247,6 +250,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/vm-monitoring-metrics.html">VM Monitoring and Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
   </li>
 </ul>
   </li>
@@ -278,6 +284,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
   </li>
 </ul>
   </li>
@@ -384,14 +393,6 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Versions tested:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>OpenShift 4.20,4.21</pre>
-</div>
-</div>
-<div class="paragraph">
 <p>A Linux bridge secondary network uses the <a href="https://nmstate.io/kubernetes-nmstate/">Kubernetes NMState Operator</a> to create a new Linux bridge device on the cluster nodes,
 and the <a href="https://github.com/k8snetworkplumbingwg/multus-cni" target="_blank" rel="noopener">Multus CNI</a> in conjunction with the <a href="https://www.cni.dev/plugins/current/main/bridge/">bridge CNI plugin</a>
 to connect pods and <code>VirtualMachines</code> (VMs) to the bridge.</p>
@@ -436,7 +437,7 @@ A Linux bridge <code>NetworkAttachmentDefinition</code> is the simplest way to c
 <div class="ulist">
 <ul>
 <li>
-<p>OpenShift 4.20+ cluster with OpenShift Virtualization operator installed</p>
+<p>OpenShift 4.18+ cluster with OpenShift Virtualization operator installed</p>
 </li>
 <li>
 <p>NMState operator installed on the cluster</p>
@@ -543,8 +544,8 @@ spec:
             enabled: false
         # Uncomment below and change the interface name
         # to match the desired physical host port
-        #port:
-        #- name: ens1</code></pre>
+        # port:
+        # - name: ens1</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -742,7 +743,7 @@ spec:
 </ul>
 </div>
 <div class="paragraph">
-<p>More example configurations of the Linux bridge CNI plugin (including several examples which are unsupported in OpenShift Virtualization) are available in the <a href="https://www.cni.dev/plugins/current/main/bridge/" target="_blank" rel="noopener">bridge CNI plugin documentation</a> as well as the official <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/virtualization/networking#virt-creating-linux-bridge-nad-cli_virt-connecting-vm-to-linux-bridge" target="_blank" rel="noopener">OpenShift Documentation</a>.</p>
+<p>More example configurations of the Linux bridge CNI plugin (including several examples which are unsupported in OpenShift Virtualization) are available in the <a href="https://www.cni.dev/plugins/current/main/bridge/" target="_blank" rel="noopener">bridge CNI plugin documentation</a> as well as the official <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-creating-linux-bridge-nad-cli_virt-connecting-vm-to-linux-bridge" target="_blank" rel="noopener">OpenShift Documentation</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -890,11 +891,9 @@ spec:
         devices:
           disks:
           - name: fedora-bridge-demo-root
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - masquerade: {}
             name: default
@@ -927,12 +926,18 @@ spec:
 </div>
 </div>
 <div class="paragraph">
-<p>Reviewing specific fields from the above example (all field paths are relative to <code>spec.template.spec</code>):</p>
+<p>Reviewing specific fields from the above example (all field paths are relative to <code>spec</code>):</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>domain.devices.interfaces</code></strong>: lists two interfaces, the primary <code>default</code> and the secondary <code>nic-linux-bridge</code></p>
+<p><strong><code>instancetype</code></strong>: references the <code>u1.large</code> cluster instancetype, which defines CPU and memory resources. This removes the need for inline <code>domain.resources</code> or <code>domain.cpu</code> fields.</p>
+</li>
+<li>
+<p><strong><code>preference</code></strong>: references the <code>fedora</code> cluster preference, which provides Fedora-specific settings such as preferred disk bus types, machine type, and firmware configuration.</p>
+</li>
+<li>
+<p><strong><code>template.spec.domain.devices.interfaces</code></strong>: lists two interfaces, the primary <code>default</code> and the secondary <code>nic-linux-bridge</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -946,7 +951,7 @@ This uses a vm-to-container bridge, whereas the <code>lnbr0</code> bridge connec
 </div>
 </li>
 <li>
-<p><strong><code>networks</code></strong>: list of networks to which the <code>interfaces</code> are attached.</p>
+<p><strong><code>template.spec.networks</code></strong>: list of networks to which the <code>interfaces</code> are attached.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -959,7 +964,7 @@ This uses a vm-to-container bridge, whereas the <code>lnbr0</code> bridge connec
 </div>
 </li>
 <li>
-<p><strong><code>volumes</code></strong>: there are two named volumes: one is the root <code>datavolumedisk</code>, and the other is the <code>cloudinitdisk</code></p>
+<p><strong><code>template.spec.volumes</code></strong>: there are two named volumes: one is the root <code>datavolumedisk</code>, and the other is the <code>cloudinitdisk</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1059,11 +1064,9 @@ spec:
         devices:
           disks:
           - name: fedora-bridge-demo2-root
-            disk:
-              bus: virtio
+            disk: {}
           - name: cloudinitdisk
-            disk:
-              bus: virtio
+            disk: {}
           interfaces:
           - masquerade: {}
             name: default
@@ -1217,7 +1220,7 @@ oc delete namespace bridge-demo</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/virtualization/networking#virt-connecting-vm-to-linux-bridge_virt-connecting-vm-to-linux-bridge" target="_blank" rel="noopener">OpenShift Virtualization - Connecting a VM to a Linux bridge</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/virtualization/networking#virt-connecting-vm-to-linux-bridge_virt-connecting-vm-to-linux-bridge" target="_blank" rel="noopener">OpenShift Virtualization - Connecting a VM to a Linux bridge</a></p>
 </li>
 <li>
 <p><a href="https://nmstate.io/devel/yaml_api.html" target="_blank" rel="noopener">NMState API Guide</a></p>
