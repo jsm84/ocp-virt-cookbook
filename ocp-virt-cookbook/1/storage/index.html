@@ -65,6 +65,9 @@
     <a class="nav-link" href="../getting-started/architecture-overview.html">Architecture Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/hosted-control-planes.html">Hosted Control Planes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../getting-started/install-openshift-virtualization.html">Install OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -114,6 +117,9 @@
     <a class="nav-link" href="creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="choosing-storage-class.html">Choosing a Storage Class</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="multi-disk-configuration.html">Multi-Disk VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -124,6 +130,12 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="disk-io-tuning.html">Disk I/O Tuning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage-profiles.html">Storage Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="live-migration-storage.html">Live Migration Storage</a>
   </li>
 </ul>
   </li>
@@ -226,6 +238,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/hyperconverged-configuration.html">HyperConverged Configuration</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/scheduling-tolerations-taints.html">Scheduling with Tolerations and Taints</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -253,6 +268,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../performance/nested-virtualization.html">Nested Virtualization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/windows-vm-optimization.html">Windows VM Optimization</a>
   </li>
 </ul>
   </li>
@@ -287,6 +305,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-lifecycle/live-migration.html">Live Migration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/migrate-from-vmware-mtv.html">Migrate from VMware (MTV)</a>
   </li>
 </ul>
   </li>
@@ -638,6 +659,10 @@ Live migration requires the VM disk to be accessible from both the source and de
 <dt class="hdlist1"><a href="disk-io-tuning.html" class="xref page">VM Disk I/O Performance Tuning</a></dt>
 <dd>
 <p>Tune disk I/O performance for VM workloads with cache modes, I/O threads, and queue settings.</p>
+</dd>
+<dt class="hdlist1"><a href="live-migration-storage.html" class="xref page">Storage Requirements and Configuration for VM Live Migration</a></dt>
+<dd>
+<p>Configure RWX storage for live migration, check whether a VM can migrate, and move existing RWO disks to shared storage.</p>
 </dd>
 </dl>
 </div>
